@@ -1,6 +1,31 @@
 import Head from "next/head";
+import {
+    getHomeSection,
+    getSocialLinks,
+    getAboutSection,
+    getFeaturedProjects,
+    getJsProjects,
+    getCtaSection,
+} from "@/lib/sanity.client";
 
-export default function Home() {
+import MobileHeader from "../components/MobileHeader";
+
+export default function Home({
+    homeSection,
+    socialLinks,
+    aboutSection,
+    featuredProjects,
+    jsProjects,
+    ctaSection,
+}) {
+    console.log(
+        homeSection,
+        socialLinks,
+        aboutSection,
+        featuredProjects,
+        jsProjects,
+        ctaSection
+    );
     return (
         <>
             <Head>
@@ -15,7 +40,37 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <MobileHeader />
             <h1 className="text-red-500">Personal Portfolio</h1>
         </>
     );
+}
+
+export async function getStaticProps() {
+    const [
+        homeSection,
+        socialLinks,
+        aboutSection,
+        featuredProjects,
+        jsProjects,
+        ctaSection,
+    ] = await Promise.all([
+        getHomeSection(),
+        getSocialLinks(),
+        getAboutSection(),
+        getFeaturedProjects(),
+        getJsProjects(),
+        getCtaSection(),
+    ]);
+
+    return {
+        props: {
+            homeSection,
+            socialLinks,
+            aboutSection,
+            featuredProjects,
+            jsProjects,
+            ctaSection,
+        },
+    };
 }
