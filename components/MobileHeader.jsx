@@ -4,7 +4,7 @@ import MobileNavButton from "./MobileNavButton";
 import MobileNav from "./MobileNav";
 import MobileSocialContainer from "./MobileSocialContainer";
 
-export default function MobileHeader() {
+export default function MobileHeader({ socialLinks }) {
     const [isNavVisible, setIsNavVisible] = useState(false);
 
     return (
@@ -17,7 +17,7 @@ export default function MobileHeader() {
                 setIsNavVisible={setIsNavVisible}
             />
             <MobileNav />
-            <MobileSocialContainer />
+            <MobileSocialContainer socialLinks={socialLinks} />
         </motion.header>
     );
 }

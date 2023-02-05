@@ -9,6 +9,12 @@ import {
 } from "@/lib/sanity.client";
 
 import MobileHeader from "../components/MobileHeader";
+import HomeSection from "../components/HomeSection";
+import AboutSection from "../components/AboutSection";
+import WorkSection from "../components/WorkSection";
+import JsProjectsSection from "../components/JsProjectsSection";
+import CtaSection from "../components/CtaSection";
+import Footer from "../components/Footer";
 
 export default function Home({
     homeSection,
@@ -40,8 +46,15 @@ export default function Home({
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <MobileHeader />
-            <h1 className="text-red-500">Personal Portfolio</h1>
+            <MobileHeader socialLinks={socialLinks} />
+            <main>
+                <HomeSection homeSection={homeSection} />
+                <AboutSection aboutSection={aboutSection} />
+                <WorkSection featuredProjects={featuredProjects} />
+                <JsProjectsSection jsProjects={jsProjects} />
+                <CtaSection ctaSection={ctaSection} />
+            </main>
+            <Footer />
         </>
     );
 }

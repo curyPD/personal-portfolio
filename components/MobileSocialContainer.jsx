@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { SiLinkedin, SiTwitter, SiFacebook, SiGithub } from "react-icons/si";
 
-export default function MobileSocialContainer() {
+export default function MobileSocialContainer({ socialLinks }) {
     const socialContainerVariants = {
         open: {
             transition: {
@@ -79,68 +79,44 @@ export default function MobileSocialContainer() {
         return translate;
     }
 
-    // [1,2,3].map((el, i, arr) => {
-    //     const translate = calculatePositionOfArrayItem(i, arr.length, 24, 20);
-    //     return <motion.div key={el._id} custom={translate}>{el.title}</motion.div>
-    // })
-
     return (
         <motion.div
             variants={socialContainerVariants}
             className="absolute top-0 left-0 z-40 h-full w-full"
         >
-            {[1, 2, 3, 4].map((_, i, arr) => {
+            {socialLinks.map((socialLink, i, arr) => {
                 const translate = calculateTranslateValueOfArrayItem(
                     i,
                     arr.length,
                     24,
                     20
                 );
+                let icon;
+                if (socialLink.title.toLowerCase() === "linkedin")
+                    icon = <SiLinkedin className="h-6 w-6 text-gray-400/70" />;
+                else if (socialLink.title.toLowerCase() === "twitter")
+                    icon = <SiTwitter className="h-6 w-6 text-gray-400/70" />;
+                else if (socialLink.title.toLowerCase() === "facebook")
+                    icon = <SiFacebook className="h-6 w-6 text-gray-400/70" />;
+                else if (socialLink.title.toLowerCase() === "github")
+                    icon = <SiGithub className="h-6 w-6 text-gray-400/70" />;
                 return (
                     <motion.div
-                        key={i}
+                        key={socialLink._id}
                         className="absolute right-5 top-1/2"
                         variants={socialVariants}
                         custom={translate}
                     >
-                        <a href="#">
-                            <SiLinkedin className="h-6 w-6" />
+                        <a
+                            href={socialLink.url}
+                            target="_blank"
+                            rel="noopener noferrer"
+                        >
+                            {icon}
                         </a>
                     </motion.div>
                 );
             })}
-            {/* <motion.div
-                className="absolute right-5 top-1/2"
-                variants={socialVariants}
-            >
-                <a href="#">
-                    <SiLinkedin className="h-6 w-6" />
-                </a>
-            </motion.div>
-            <motion.div
-                className="absolute right-5 top-1/2"
-                variants={socialVariants}
-            >
-                <a href="#">
-                    <SiTwitter className="h-6 w-6" />
-                </a>
-            </motion.div>
-            <motion.div
-                className="absolute right-5 top-1/2"
-                variants={socialVariants}
-            >
-                <a href="#">
-                    <SiFacebook className="h-6 w-6" />
-                </a>
-            </motion.div>
-            <motion.div
-                className="absolute right-5 top-1/2"
-                variants={socialVariants}
-            >
-                <a href="#">
-                    <SiGithub className="h-6 w-6" />
-                </a>
-            </motion.div> */}
         </motion.div>
     );
 }

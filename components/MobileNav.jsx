@@ -62,11 +62,40 @@ export default function MobileNav() {
                 variants={ulVariants}
                 className="flex h-full w-full flex-col items-center justify-center gap-12"
             >
-                <motion.li variants={liVariants}>Home</motion.li>
-                <motion.li variants={liVariants}>About</motion.li>
-                <motion.li variants={liVariants}>Work</motion.li>
-                <motion.li variants={liVariants}>Contact</motion.li>
-                <motion.li variants={liVariants}>Resume</motion.li>
+                <motion.li variants={liVariants}>
+                    <a
+                        className="text-3xl font-medium text-gray-800"
+                        href="#home"
+                    >
+                        Home
+                    </a>
+                </motion.li>
+                <motion.li variants={liVariants}>
+                    <a
+                        className="text-3xl font-medium text-gray-800"
+                        href="#about"
+                    >
+                        About
+                    </a>
+                </motion.li>
+                <motion.li variants={liVariants}>
+                    <a
+                        className="text-3xl font-medium text-gray-800"
+                        href="#work"
+                    >
+                        Work
+                    </a>
+                </motion.li>
+                <motion.li variants={liVariants}>
+                    <a className="text-3xl font-medium text-gray-800" href="#">
+                        Contact
+                    </a>
+                </motion.li>
+                <motion.li variants={liVariants}>
+                    <a className="text-3xl font-medium text-gray-800" href="#">
+                        Resume
+                    </a>
+                </motion.li>
             </motion.ul>
         </motion.nav>
     );

@@ -25,7 +25,7 @@ export default function MobileNavButton({ isNavVisible, setIsNavVisible }) {
             variants={buttonVariants}
             onClick={() => setIsNavVisible((prevState) => !prevState)}
             className={`absolute top-1/2 right-5 z-50 h-10 w-10 rounded-full transition-colors ${
-                isNavVisible ? "bg-gray-900" : "bg-gray-300"
+                isNavVisible ? "bg-gray-900" : "bg-transparent"
             }`}
         >
             <span
