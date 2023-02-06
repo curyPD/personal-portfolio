@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { SiLinkedin, SiTwitter, SiFacebook, SiGithub } from "react-icons/si";
 
 export default function MobileSocialContainer({ socialLinks }) {
+    const [socialIcons, setSocialIcons] = useState([]);
+
     const socialContainerVariants = {
         open: {
             transition: {
@@ -79,27 +82,40 @@ export default function MobileSocialContainer({ socialLinks }) {
         return translate;
     }
 
-    return (
-        <motion.div
-            variants={socialContainerVariants}
-            className="absolute top-0 left-0 z-40 h-full w-full"
-        >
-            {socialLinks.map((socialLink, i, arr) => {
+    useEffect(() => {
+        setSocialIcons(
+            socialLinks.map((socialLink, i, arr) => {
                 const translate = calculateTranslateValueOfArrayItem(
                     i,
                     arr.length,
-                    24,
-                    20
+                    window.innerWidth < 640
+                        ? 24
+                        : window.innerWidth >= 640 && window.innerWidth < 768
+                        ? 28
+                        : 32,
+                    window.innerWidth < 640
+                        ? 20
+                        : window.innerWidth >= 640 && window.innerWidth < 768
+                        ? 24
+                        : 28
                 );
                 let icon;
                 if (socialLink.title.toLowerCase() === "linkedin")
-                    icon = <SiLinkedin className="h-6 w-6 text-gray-400/70" />;
+                    icon = (
+                        <SiLinkedin className="h-6 w-6 text-gray-400/70 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                    );
                 else if (socialLink.title.toLowerCase() === "twitter")
-                    icon = <SiTwitter className="h-6 w-6 text-gray-400/70" />;
+                    icon = (
+                        <SiTwitter className="h-6 w-6 text-gray-400/70 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                    );
                 else if (socialLink.title.toLowerCase() === "facebook")
-                    icon = <SiFacebook className="h-6 w-6 text-gray-400/70" />;
+                    icon = (
+                        <SiFacebook className="h-6 w-6 text-gray-400/70 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                    );
                 else if (socialLink.title.toLowerCase() === "github")
-                    icon = <SiGithub className="h-6 w-6 text-gray-400/70" />;
+                    icon = (
+                        <SiGithub className="h-6 w-6 text-gray-400/70 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                    );
                 return (
                     <motion.div
                         key={socialLink._id}
@@ -116,7 +132,16 @@ export default function MobileSocialContainer({ socialLinks }) {
                         </a>
                     </motion.div>
                 );
-            })}
+            })
+        );
+    }, []);
+
+    return (
+        <motion.div
+            variants={socialContainerVariants}
+            className="absolute top-0 left-0 z-40 h-full w-full"
+        >
+            {socialIcons}
         </motion.div>
     );
 }

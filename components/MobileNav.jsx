@@ -60,19 +60,19 @@ export default function MobileNav() {
         >
             <motion.ul
                 variants={ulVariants}
-                className="flex h-full w-full flex-col items-center justify-center gap-12"
+                className="flex h-full w-full flex-col items-center justify-center gap-12 lg:gap-14"
             >
                 <motion.li variants={liVariants}>
                     <a
-                        className="text-3xl font-medium text-gray-800"
-                        href="#home"
+                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
+                        href="#"
                     >
                         Home
                     </a>
                 </motion.li>
                 <motion.li variants={liVariants}>
                     <a
-                        className="text-3xl font-medium text-gray-800"
+                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
                         href="#about"
                     >
                         About
@@ -80,19 +80,25 @@ export default function MobileNav() {
                 </motion.li>
                 <motion.li variants={liVariants}>
                     <a
-                        className="text-3xl font-medium text-gray-800"
+                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
                         href="#work"
                     >
                         Work
                     </a>
                 </motion.li>
                 <motion.li variants={liVariants}>
-                    <a className="text-3xl font-medium text-gray-800" href="#">
+                    <a
+                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
+                        href="#cta"
+                    >
                         Contact
                     </a>
                 </motion.li>
                 <motion.li variants={liVariants}>
-                    <a className="text-3xl font-medium text-gray-800" href="#">
+                    <a
+                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
+                        href="#"
+                    >
                         Resume
                     </a>
                 </motion.li>

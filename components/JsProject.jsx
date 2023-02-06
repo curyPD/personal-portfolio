@@ -12,14 +12,14 @@ export default function FeaturedProject({
     technologies,
 }) {
     return (
-        <article className="relative rounded-lg bg-purple-100/95 px-3 pt-5 pb-12 shadow-lg shadow-gray-900/10 xs:px-4">
-            <h4 className="mb-3 text-center text-sm font-semibold text-purple-900 xs:text-base">
+        <article className="relative rounded-lg bg-purple-100/95 px-3 pt-5 pb-12 shadow-lg shadow-gray-900/10 xs:px-4 md:px-6 md:pb-14 md:pt-7  xl:px-10">
+            <h4 className="mb-3 text-center text-sm font-semibold text-purple-900 xs:text-base md:text-lg lg:text-left xl:mb-4 xl:text-xl 2xl:mb-5 2xl:text-2xl">
                 {title}
             </h4>
-            <p className="mb-4 text-center text-[10px] font-medium text-purple-900 xs:text-xs">
+            <p className="mb-4 text-center text-[10px] font-medium text-purple-900 xs:mb-5 xs:text-xs xs:leading-normal md:mb-6 md:text-sm lg:text-left xl:mb-7 xl:text-base 2xl:mb-7 2xl:pr-5 2xl:text-lg">
                 {description}
             </p>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-3 md:gap-4 lg:justify-start 2xl:gap-5">
                 {technologies.map((tech) => {
                     const { width, height } = getImageDimensions(tech.icon);
 
@@ -36,27 +36,27 @@ export default function FeaturedProject({
                             className={`h-auto ${
                                 tech.title.toLowerCase().includes("html") ||
                                 tech.title.toLowerCase().includes("parcel")
-                                    ? "w-8 xs:w-11"
+                                    ? "w-8 xs:w-11 xl:w-12 2xl:w-16"
                                     : tech.title
                                           .toLowerCase()
                                           .includes("javascript")
-                                    ? "w-7 xs:w-10"
-                                    : "w-6 xs:w-8"
+                                    ? "w-7 xs:w-10 xl:w-11 2xl:w-14"
+                                    : "w-6 xs:w-8 xl:w-9 2xl:w-12"
                             } ${
                                 tech.title.toLowerCase().includes("html")
-                                    ? "-mx-1"
+                                    ? "-mx-1 2xl:-mx-2"
                                     : ""
                             }`}
                         />
                     );
                 })}
             </div>
-            <div className="absolute bottom-1 right-1 flex h-8 w-16 items-center justify-center gap-2">
+            <div className="absolute bottom-1 right-1 flex h-8 w-16 items-center justify-center gap-2 md:h-9 md:w-20 md:gap-3 2xl:right-3 2xl:bottom-3 2xl:h-10 2xl:w-24 2xl:gap-4">
                 <a href={url} target="_blank" rel="noopener noreferrer">
-                    <HiArrowTopRightOnSquare className="h-5 w-5 text-gray-700" />
+                    <HiArrowTopRightOnSquare className="h-5 w-5 text-gray-700 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                 </a>
                 <a href={repo} target="_blank" rel="noopener noreferrer">
-                    <SiGithub className="h-5 w-5 text-gray-700" />
+                    <SiGithub className="h-5 w-5 text-gray-700 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                 </a>
             </div>
         </article>

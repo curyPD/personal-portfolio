@@ -9,6 +9,8 @@ import {
 } from "@/lib/sanity.client";
 
 import MobileHeader from "../components/MobileHeader";
+import DesktopHeader from "../components/DesktopHeader";
+import DesktopSocialLinks from "@/components/DesktopSocialLinks";
 import HomeSection from "../components/HomeSection";
 import AboutSection from "../components/AboutSection";
 import WorkSection from "../components/WorkSection";
@@ -47,6 +49,8 @@ export default function Home({
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <MobileHeader socialLinks={socialLinks} />
+            <DesktopHeader />
+            <DesktopSocialLinks socialLinks={socialLinks} />
             <main>
                 <HomeSection homeSection={homeSection} />
                 <AboutSection aboutSection={aboutSection} />

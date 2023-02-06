@@ -10,7 +10,7 @@ export default function MobileHeader({ socialLinks }) {
     return (
         <motion.header
             animate={isNavVisible ? "open" : "closed"}
-            className="fixed z-20 h-20 w-full translate-y-0 bg-gray-50/50 backdrop-blur-sm"
+            className="fixed z-20 h-20 w-full translate-y-0 bg-gray-50/50 backdrop-blur-sm xl:hidden"
         >
             <MobileNavButton
                 isNavVisible={isNavVisible}
