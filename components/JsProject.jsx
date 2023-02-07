@@ -5,6 +5,7 @@ import { getImageDimensions } from "@sanity/asset-utils";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { SiGithub } from "react-icons/si";
 import { PortableText } from "@portabletext/react";
+import { motion } from "framer-motion";
 
 export default function FeaturedProject({
     description,
@@ -42,47 +43,58 @@ export default function FeaturedProject({
                 value={description}
                 components={portableTextComponents}
             />
-            {/* <p className="mb-4 text-center text-[10px] font-medium text-purple-900 xs:mb-5 xs:text-xs xs:leading-normal md:mb-6 md:text-sm lg:text-left xl:mb-7 xl:text-base 2xl:mb-7 2xl:pr-5 2xl:text-lg">
-                
-            </p> */}
-            <div className="flex items-center justify-center gap-3 md:gap-4 lg:justify-start 2xl:gap-5">
-                {technologies.map((tech) => {
+            <div className="flex items-center justify-center space-x-3 md:space-x-4 lg:justify-start 2xl:space-x-5">
+                {technologies.map((tech, i) => {
                     const { width, height } = getImageDimensions(tech.icon);
 
                     return (
-                        <Image
+                        <motion.div
+                            whileHover={{ scale: 0.85 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 500,
+                                damping: 15,
+                            }}
                             key={tech._id}
-                            src={urlFor(tech.icon)
-                                .height(125)
-                                .format("png")
-                                .url()}
-                            alt={tech.title}
-                            width={width}
-                            height={height}
-                            className={`h-auto ${
-                                tech.title.toLowerCase().includes("html") ||
-                                tech.title.toLowerCase().includes("parcel")
-                                    ? "w-8 xs:w-11 xl:w-12 2xl:w-16"
-                                    : tech.title
-                                          .toLowerCase()
-                                          .includes("javascript")
-                                    ? "w-7 xs:w-10 xl:w-11 2xl:w-14"
-                                    : "w-6 xs:w-8 xl:w-9 2xl:w-12"
-                            } ${
-                                tech.title.toLowerCase().includes("html")
-                                    ? "-mx-1 2xl:-mx-2"
-                                    : ""
-                            }`}
-                        />
+                        >
+                            <Image
+                                src={urlFor(tech.icon)
+                                    .height(125)
+                                    .format("png")
+                                    .url()}
+                                alt={tech.title}
+                                width={width}
+                                height={height}
+                                className={`h-auto ${
+                                    tech.title.toLowerCase().includes("parcel")
+                                        ? "w-8 xs:w-11 xl:w-12 2xl:w-16"
+                                        : tech.title
+                                              .toLowerCase()
+                                              .includes("javascript")
+                                        ? "w-7 xs:w-10 xl:w-11 2xl:w-14"
+                                        : "w-6 xs:w-8 xl:w-9 2xl:w-12"
+                                }`}
+                            />
+                        </motion.div>
                     );
                 })}
             </div>
             <div className="absolute bottom-1 right-1 flex h-8 w-16 items-center justify-center gap-2 md:h-9 md:w-20 md:gap-3 2xl:right-3 2xl:bottom-3 2xl:h-10 2xl:w-24 2xl:gap-4">
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                    <HiArrowTopRightOnSquare className="h-5 w-5 text-gray-700 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
+                <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 transition-colors hover:text-purple-900"
+                >
+                    <HiArrowTopRightOnSquare className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                 </a>
-                <a href={repo} target="_blank" rel="noopener noreferrer">
-                    <SiGithub className="h-5 w-5 text-gray-700 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
+                <a
+                    href={repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 transition-colors hover:text-purple-900"
+                >
+                    <SiGithub className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                 </a>
             </div>
         </article>

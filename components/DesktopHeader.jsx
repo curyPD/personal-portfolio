@@ -5,7 +5,7 @@ export default function DesktopHeader() {
                 <ul className="flex flex-col items-end gap-2 px-6 2xl:gap-4">
                     <li>
                         <a
-                            className="text-sm font-medium text-gray-500 2xl:text-base"
+                            className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-900 2xl:text-lg"
                             href="#"
                         >
                             Home
@@ -13,7 +13,7 @@ export default function DesktopHeader() {
                     </li>
                     <li>
                         <a
-                            className="text-sm font-medium text-gray-500 2xl:text-base"
+                            className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-900 2xl:text-lg"
                             href="#about"
                         >
                             About
@@ -21,7 +21,7 @@ export default function DesktopHeader() {
                     </li>
                     <li>
                         <a
-                            className="text-sm font-medium text-gray-500 2xl:text-base"
+                            className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-900 2xl:text-lg"
                             href="#work"
                         >
                             Work
@@ -29,7 +29,7 @@ export default function DesktopHeader() {
                     </li>
                     <li>
                         <a
-                            className="text-sm font-medium text-gray-500 2xl:text-base"
+                            className="text-sm font-medium text-gray-500 transition-colors hover:text-gray-900 2xl:text-lg"
                             href="#"
                         >
                             Contact

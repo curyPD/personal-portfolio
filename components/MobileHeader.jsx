@@ -16,7 +16,7 @@ export default function MobileHeader({ socialLinks }) {
                 isNavVisible={isNavVisible}
                 setIsNavVisible={setIsNavVisible}
             />
-            <MobileNav />
+            <MobileNav isNavVisible={isNavVisible} />
             <MobileSocialContainer socialLinks={socialLinks} />
         </motion.header>
     );

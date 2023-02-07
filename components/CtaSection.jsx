@@ -15,7 +15,7 @@ export default function CtaSection({ ctaSection }) {
                 </p>
                 <a
                     href="mailto:romandruzhininwork@gmail.com"
-                    className="mx-auto block max-w-xs rounded bg-gray-900 py-2.5 text-base font-normal text-white shadow-lg lg:w-48 xl:w-60 xl:py-3 xl:text-xl 2xl:py-3.5 2xl:text-2xl"
+                    className="mx-auto block max-w-xs rounded border-2 border-gray-900 bg-gray-900 py-2.5 text-base font-medium text-white shadow-md transition-colors hover:bg-transparent hover:text-gray-900 lg:w-48 xl:w-60 xl:py-3 xl:text-xl 2xl:py-3.5 2xl:text-2xl"
                 >
                     Contact me
                 </a>
