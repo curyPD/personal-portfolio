@@ -5,7 +5,7 @@ export default function DesktopHeader() {
                 <ul className="flex flex-col items-end gap-2 px-6 2xl:gap-4">
                     <li>
                         <a
-                            className="text-sm font-medium text-gray-600 2xl:text-lg"
+                            className="text-sm font-medium text-gray-500 2xl:text-base"
                             href="#"
                         >
                             Home
@@ -13,7 +13,7 @@ export default function DesktopHeader() {
                     </li>
                     <li>
                         <a
-                            className="text-sm font-medium text-gray-600 2xl:text-lg"
+                            className="text-sm font-medium text-gray-500 2xl:text-base"
                             href="#about"
                         >
                             About
@@ -21,7 +21,7 @@ export default function DesktopHeader() {
                     </li>
                     <li>
                         <a
-                            className="text-sm font-medium text-gray-600 2xl:text-lg"
+                            className="text-sm font-medium text-gray-500 2xl:text-base"
                             href="#work"
                         >
                             Work
@@ -29,20 +29,20 @@ export default function DesktopHeader() {
                     </li>
                     <li>
                         <a
-                            className="text-sm font-medium text-gray-600 2xl:text-lg"
+                            className="text-sm font-medium text-gray-500 2xl:text-base"
                             href="#"
                         >
                             Contact
                         </a>
                     </li>
-                    <li>
+                    {/* <li>
                         <a
-                            className="text-sm font-medium text-gray-600 2xl:text-lg"
+                            className="text-sm font-medium text-gray-500 2xl:text-base"
                             href="#"
                         >
                             Resume
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         </header>

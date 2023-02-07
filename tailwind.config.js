@@ -16,10 +16,19 @@ module.exports = {
             fontFamily: {
                 sans: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],
             },
-            // screens: {
-            //     lg: "960px",
-            //     xl: "1100px",
-            // },
+            keyframes: {
+                backgroundPan: {
+                    "0%": {
+                        backgroundPosition: "0% center",
+                    },
+                    "100%": {
+                        backgroundPosition: "-200% center",
+                    },
+                },
+            },
+            animation: {
+                magicText: "backgroundPan 1.5s linear infinite",
+            },
         },
     },
     plugins: [],

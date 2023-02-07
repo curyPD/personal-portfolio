@@ -8,7 +8,7 @@ export default function WorkSection({ featuredProjects }) {
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 xs:text-3xl xl:text-4xl 2xl:text-5xl">
                         Work
                     </h2>
-                    <div className="mt-6 mb-12 h-[3px] w-16 bg-gradient-to-r from-purple-500 to-indigo-500 lg:my-0 lg:mb-2">
+                    <div className="mt-6 mb-12 h-[3px] w-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 lg:my-0 lg:mb-2">
                         &nbsp;
                     </div>
                 </div>

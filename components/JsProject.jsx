@@ -1,8 +1,10 @@
+import { useMemo } from "react";
 import Image from "next/image";
 import { urlFor } from "../lib/sanity.image";
 import { getImageDimensions } from "@sanity/asset-utils";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { SiGithub } from "react-icons/si";
+import { PortableText } from "@portabletext/react";
 
 export default function FeaturedProject({
     description,
@@ -11,14 +13,38 @@ export default function FeaturedProject({
     title,
     technologies,
 }) {
+    const portableTextComponents = useMemo(
+        () => ({
+            block: {
+                normal: ({ children }) => (
+                    <p className="mb-4 text-center text-[10px] font-medium text-purple-900 xs:mb-5 xs:text-xs xs:leading-normal md:mb-6 md:text-sm lg:text-left xl:mb-7 xl:text-base 2xl:mb-7 2xl:pr-5 2xl:text-lg">
+                        {children}
+                    </p>
+                ),
+            },
+            marks: {
+                strikeThrough: ({ children }) => (
+                    <span className="line-through">{children}</span>
+                ),
+                em: ({ children }) => (
+                    <span className="opacity-50">{children}</span>
+                ),
+            },
+        }),
+        []
+    );
     return (
         <article className="relative rounded-lg bg-purple-100/95 px-3 pt-5 pb-12 shadow-lg shadow-gray-900/10 xs:px-4 md:px-6 md:pb-14 md:pt-7  xl:px-10">
             <h4 className="mb-3 text-center text-sm font-semibold text-purple-900 xs:text-base md:text-lg lg:text-left xl:mb-4 xl:text-xl 2xl:mb-5 2xl:text-2xl">
                 {title}
             </h4>
-            <p className="mb-4 text-center text-[10px] font-medium text-purple-900 xs:mb-5 xs:text-xs xs:leading-normal md:mb-6 md:text-sm lg:text-left xl:mb-7 xl:text-base 2xl:mb-7 2xl:pr-5 2xl:text-lg">
-                {description}
-            </p>
+            <PortableText
+                value={description}
+                components={portableTextComponents}
+            />
+            {/* <p className="mb-4 text-center text-[10px] font-medium text-purple-900 xs:mb-5 xs:text-xs xs:leading-normal md:mb-6 md:text-sm lg:text-left xl:mb-7 xl:text-base 2xl:mb-7 2xl:pr-5 2xl:text-lg">
+                
+            </p> */}
             <div className="flex items-center justify-center gap-3 md:gap-4 lg:justify-start 2xl:gap-5">
                 {technologies.map((tech) => {
                     const { width, height } = getImageDimensions(tech.icon);
@@ -27,7 +53,7 @@ export default function FeaturedProject({
                         <Image
                             key={tech._id}
                             src={urlFor(tech.icon)
-                                .height(72)
+                                .height(125)
                                 .format("png")
                                 .url()}
                             alt={tech.title}

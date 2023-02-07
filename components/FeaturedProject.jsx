@@ -14,7 +14,7 @@ export default function FeaturedProject({
 }) {
     const { width, height } = getImageDimensions(screenshot);
     return (
-        <article className="grid-rows-[repeat(10,_minmax(0,_1fr)] group mb-36 grid grid-cols-10 last:mb-0 sm:mb-40 md:mb-48 lg:mb-64 lg:grid-cols-12 lg:grid-rows-4 lg:items-start">
+        <article className="grid-rows-[repeat(10,_minmax(0,_1fr)] group mb-36 grid grid-cols-10 last:mb-0 md:mb-40 lg:mb-64 lg:grid-cols-12 lg:grid-rows-4 lg:items-start">
             <div className="z-10 col-span-full row-start-1 row-end-2 lg:col-start-1 lg:col-end-5 lg:row-end-2 lg:text-left lg:group-even:col-start-8 lg:group-even:col-end-13 lg:group-even:text-right 2xl:col-end-5 2xl:group-even:col-start-9">
                 <span className="mb-1 hidden text-xs font-bold uppercase tracking-widest text-purple-400 lg:block">
                     featured project
@@ -53,7 +53,7 @@ export default function FeaturedProject({
                             <Image
                                 key={tech._id}
                                 src={urlFor(tech.icon)
-                                    .height(72)
+                                    .height(96)
                                     .format("png")
                                     .url()}
                                 alt={tech.title}

@@ -6,11 +6,11 @@ export default function CtaSection({ ctaSection }) {
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 xs:text-3xl xl:text-4xl 2xl:text-5xl">
                         Get in touch
                     </h2>
-                    <div className="my-6 h-[3px] w-16 bg-gradient-to-r from-sky-500 to-cyan-500 xl:my-8">
+                    <div className="my-6 h-[3px] w-16 bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 xl:my-8">
                         &nbsp;
                     </div>
                 </div>
-                <p className="mb-12 text-sm font-medium text-gray-700 xs:text-base lg:text-lg xl:text-xl 2xl:mb-20 2xl:text-2xl 2xl:leading-normal">
+                <p className="mb-12 text-sm font-medium text-gray-600 xs:text-base lg:text-lg xl:text-xl 2xl:mb-20 2xl:text-2xl 2xl:leading-normal">
                     {ctaSection.cta}
                 </p>
                 <a
