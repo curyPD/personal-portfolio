@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "../lib/sanity.image";
 import { getImageDimensions } from "@sanity/asset-utils";
+import { motion } from "framer-motion";
 
 export default function AboutSection({ aboutSection }) {
     const portableTextComponents = useMemo(
@@ -30,7 +31,17 @@ export default function AboutSection({ aboutSection }) {
     const { width, height } = getImageDimensions(aboutSection.profilePicture);
     return (
         <section id="about" className="py-28 lg:py-36 xl:py-44">
-            <div className="mx-auto max-w-lg px-5 text-center xs:px-8 md:max-w-xl lg:max-w-3xl lg:text-left xl:max-w-4xl 2xl:max-w-6xl">
+            <motion.div
+                initial={{ opacity: 0, y: 200 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ margin: "0px 0px -30px 0px", once: true }}
+                transition={{
+                    duration: 1,
+                    type: "tween",
+                    ease: "easeOut",
+                }}
+                className="mx-auto max-w-lg px-5 text-center xs:px-8 md:max-w-xl lg:max-w-3xl lg:text-left xl:max-w-4xl 2xl:max-w-6xl"
+            >
                 <div className="flex flex-col items-center lg:mb-11 lg:flex-row lg:items-end lg:gap-6 2xl:mb-14">
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 xs:text-3xl xl:text-4xl 2xl:text-5xl">
                         About me
@@ -58,7 +69,7 @@ export default function AboutSection({ aboutSection }) {
                         </figcaption>
                     </figure>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }

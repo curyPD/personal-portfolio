@@ -1,7 +1,19 @@
+import { motion } from "framer-motion";
+
 export default function CtaSection({ ctaSection }) {
     return (
         <section id="contact" className="py-28 lg:py-36 xl:py-44">
-            <div className="mx-auto max-w-lg px-5 text-center 2xl:max-w-xl">
+            <motion.div
+                initial={{ opacity: 0, y: 200 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ margin: "0px 0px -30px 0px", once: true }}
+                transition={{
+                    duration: 1,
+                    type: "tween",
+                    ease: "easeOut",
+                }}
+                className="mx-auto max-w-lg px-5 text-center 2xl:max-w-xl"
+            >
                 <div className="flex flex-col items-center">
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 xs:text-3xl xl:text-4xl 2xl:text-5xl">
                         Get in touch
@@ -19,7 +31,7 @@ export default function CtaSection({ ctaSection }) {
                 >
                     Contact me
                 </a>
-            </div>
+            </motion.div>
         </section>
     );
 }

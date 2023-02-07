@@ -43,8 +43,8 @@ export default function FeaturedProject({
                 value={description}
                 components={portableTextComponents}
             />
-            <div className="flex items-center justify-center space-x-3 md:space-x-4 lg:justify-start 2xl:space-x-5">
-                {technologies.map((tech, i) => {
+            <div className="flex justify-center space-x-3 md:space-x-4 lg:justify-start 2xl:space-x-5">
+                {technologies.map((tech) => {
                     const { width, height } = getImageDimensions(tech.icon);
 
                     return (
@@ -56,6 +56,7 @@ export default function FeaturedProject({
                                 damping: 15,
                             }}
                             key={tech._id}
+                            className="group relative flex items-center"
                         >
                             <Image
                                 src={urlFor(tech.icon)
@@ -75,6 +76,9 @@ export default function FeaturedProject({
                                         : "w-6 xs:w-8 xl:w-9 2xl:w-12"
                                 }`}
                             />
+                            <span className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 text-[9px] text-purple-600 opacity-0 transition-all group-hover:translate-y-full group-hover:opacity-100 xs:text-[10px] xl:text-xs 2xl:text-sm">
+                                {tech.title}
+                            </span>
                         </motion.div>
                     );
                 })}
