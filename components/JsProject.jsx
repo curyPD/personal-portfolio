@@ -77,7 +77,7 @@ export default function FeaturedProject({
                                         : "w-6 xs:w-8 xl:w-9 2xl:w-12"
                                 }`}
                             />
-                            <span className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 text-[9px] text-purple-600 opacity-0 transition-all group-hover:translate-y-full group-hover:opacity-100 xs:text-[10px] xl:text-xs 2xl:text-sm">
+                            <span className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 text-[9px] text-purple-600 opacity-0 transition-all duration-100 group-hover:translate-y-full group-hover:opacity-100 xs:text-[10px] xl:text-xs 2xl:text-sm">
                                 {tech.title}
                             </span>
                         </motion.div>
@@ -89,7 +89,7 @@ export default function FeaturedProject({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-purple-600 transition-colors hover:text-purple-900"
+                    className="text-purple-600 transition-colors duration-100 hover:text-purple-900"
                 >
                     <HiArrowTopRightOnSquare className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                 </a>
@@ -97,7 +97,7 @@ export default function FeaturedProject({
                     href={repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-purple-600 transition-colors hover:text-purple-900"
+                    className="text-purple-600 transition-colors duration-100 hover:text-purple-900"
                 >
                     <SiGithub className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                 </a>

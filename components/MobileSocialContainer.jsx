@@ -102,19 +102,19 @@ export default function MobileSocialContainer({ socialLinks }) {
                 let icon;
                 if (socialLink.title.toLowerCase() === "linkedin")
                     icon = (
-                        <SiLinkedin className="h-6 w-6 text-gray-400/70 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                        <SiLinkedin className="h-6 w-6 text-gray-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                     );
                 else if (socialLink.title.toLowerCase() === "twitter")
                     icon = (
-                        <SiTwitter className="h-6 w-6 text-gray-400/70 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                        <SiTwitter className="h-6 w-6 text-gray-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                     );
                 else if (socialLink.title.toLowerCase() === "facebook")
                     icon = (
-                        <SiFacebook className="h-6 w-6 text-gray-400/70 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                        <SiFacebook className="h-6 w-6 text-gray-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                     );
                 else if (socialLink.title.toLowerCase() === "github")
                     icon = (
-                        <SiGithub className="h-6 w-6 text-gray-400/70 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                        <SiGithub className="h-6 w-6 text-gray-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                     );
                 return (
                     <motion.div

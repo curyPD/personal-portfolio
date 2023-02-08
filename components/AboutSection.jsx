@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { useMemo } from "react";
+import { useMemo, forwardRef } from "react";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "../lib/sanity.image";
 import { getImageDimensions } from "@sanity/asset-utils";
 import { motion } from "framer-motion";
 
-export default function AboutSection({ aboutSection }) {
+export default forwardRef(function AboutSection({ aboutSection }, ref) {
     const portableTextComponents = useMemo(
         () => ({
             block: {
@@ -30,7 +30,7 @@ export default function AboutSection({ aboutSection }) {
     );
     const { width, height } = getImageDimensions(aboutSection.profilePicture);
     return (
-        <section id="about" className="py-28 lg:py-36 xl:py-44">
+        <section ref={ref} id="about" className="py-28 lg:py-36 xl:py-44">
             <motion.div
                 initial={{ opacity: 0, y: 200 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ export default function AboutSection({ aboutSection }) {
                     type: "tween",
                     ease: "easeOut",
                 }}
-                className="mx-auto max-w-lg px-5 text-center xs:px-8 md:max-w-xl lg:max-w-3xl lg:text-left xl:max-w-4xl 2xl:max-w-6xl"
+                className="mx-auto max-w-lg px-5 text-center xs:px-8 md:max-w-xl lg:max-w-3xl lg:px-5 lg:text-left xl:max-w-4xl 2xl:max-w-6xl"
             >
                 <div className="flex flex-col items-center lg:mb-11 lg:flex-row lg:items-end lg:gap-6 2xl:mb-14">
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 xs:text-3xl xl:text-4xl 2xl:text-5xl">
@@ -72,4 +72,4 @@ export default function AboutSection({ aboutSection }) {
             </motion.div>
         </section>
     );
-}
+});

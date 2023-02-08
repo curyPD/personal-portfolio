@@ -1,27 +1,38 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { useMemo } from "react";
 
-export default function GradientText({
-    text,
-    colors,
-    isActive,
-    curColor,
-    setCurColor,
-}) {
+export default function GradientText({ text, color, colors, setCurColor }) {
+    const [isHovered, setIsHovered] = useState(false);
+
     const styles = {
         backgroundImage: `linear-gradient(to right, ${colors.join(",")}, ${
             colors[0]
         })`,
     };
+
+    const variants = {
+        initial: {
+            scale: 1,
+        },
+        scale: {
+            scale: color === "purple" ? 1.06 : 1.03,
+        },
+    };
+
     return (
         <motion.span
-            whileHover={{ scale: curColor === "purple" ? 1.06 : 1.03 }}
+            onHoverStart={() => {
+                setIsHovered(true);
+                setCurColor();
+            }}
+            onHoverEnd={() => {
+                setIsHovered(false);
+            }}
+            animate={isHovered ? "scale" : "initial"}
+            variants={variants}
             transition={{ type: "spring", stiffness: 500, damping: 20 }}
             style={styles}
-            className={`mx-1 inline-block ${
-                isActive ? "animate-magicText" : ""
-            } whitespace-nowrap bg-[length:200%] bg-clip-text text-transparent`}
-            onMouseEnter={setCurColor}
+            className={`mx-1 inline-block animate-magicText cursor-default whitespace-nowrap bg-[length:200%] bg-clip-text text-transparent`}
         >
             {text}
         </motion.span>

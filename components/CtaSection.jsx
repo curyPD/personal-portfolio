@@ -1,8 +1,9 @@
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 
-export default function CtaSection({ ctaSection }) {
+export default forwardRef(function CtaSection({ ctaSection }, ref) {
     return (
-        <section id="contact" className="py-28 lg:py-36 xl:py-44">
+        <section ref={ref} id="contact" className="py-28 lg:py-36 xl:py-44">
             <motion.div
                 initial={{ opacity: 0, y: 200 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -27,11 +28,11 @@ export default function CtaSection({ ctaSection }) {
                 </p>
                 <a
                     href="mailto:romandruzhininwork@gmail.com"
-                    className="mx-auto block max-w-xs rounded border-2 border-gray-900 bg-gray-900 py-2.5 text-base font-medium text-white shadow-md transition-colors hover:bg-transparent hover:text-gray-900 lg:w-48 xl:w-60 xl:py-3 xl:text-xl 2xl:py-3.5 2xl:text-2xl"
+                    className="mx-auto block max-w-xs rounded border-2 border-gray-900 bg-gray-900 py-2.5 text-base font-medium text-white shadow-md transition-colors duration-100 hover:bg-transparent hover:text-gray-900 lg:w-48 xl:w-60 xl:py-3 xl:text-xl 2xl:py-3.5 2xl:text-2xl"
                 >
                     Contact me
                 </a>
             </motion.div>
         </section>
     );
-}
+});

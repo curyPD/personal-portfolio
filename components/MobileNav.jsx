@@ -1,16 +1,21 @@
 import { motion } from "framer-motion";
 
-export default function MobileNav() {
+export default function MobileNav({
+    scrollToHome,
+    scrollToAbout,
+    scrollToWork,
+    scrollToCta,
+}) {
     const navVariants = {
         open: {
-            clipPath: `circle(2000px at calc(100% - 40px) 40px)`,
+            clipPath: `circle(2000px at calc(100% - 40px) 32px)`,
             transition: {
                 duration: 0.75,
                 type: "tween",
             },
         },
         closed: {
-            clipPath: "circle(20px at calc(100% - 40px) 40px)",
+            clipPath: "circle(20px at calc(100% - 40px) 32px)",
             transition: {
                 duration: 0.4,
                 type: "tween",
@@ -56,15 +61,16 @@ export default function MobileNav() {
     return (
         <motion.nav
             variants={navVariants}
-            className="absolute top-0 right-0 z-30 h-screen w-full bg-white"
+            className="absolute top-0 right-0 z-30 h-screen w-full bg-gray-50 "
         >
             <motion.ul
                 variants={ulVariants}
-                className="flex h-full w-full flex-col items-center justify-center gap-12 lg:gap-14"
+                className="flex h-full w-full flex-col items-center justify-center gap-12"
             >
                 <motion.li variants={liVariants}>
                     <a
-                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
+                        onClick={scrollToHome}
+                        className="text-3xl font-medium text-gray-800"
                         href="#"
                     >
                         Home
@@ -72,7 +78,8 @@ export default function MobileNav() {
                 </motion.li>
                 <motion.li variants={liVariants}>
                     <a
-                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
+                        onClick={scrollToAbout}
+                        className="text-3xl font-medium text-gray-800"
                         href="#about"
                     >
                         About
@@ -80,7 +87,8 @@ export default function MobileNav() {
                 </motion.li>
                 <motion.li variants={liVariants}>
                     <a
-                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
+                        onClick={scrollToWork}
+                        className="text-3xl font-medium text-gray-800"
                         href="#work"
                     >
                         Work
@@ -88,17 +96,15 @@ export default function MobileNav() {
                 </motion.li>
                 <motion.li variants={liVariants}>
                     <a
-                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
+                        onClick={scrollToCta}
+                        className="text-3xl font-medium text-gray-800"
                         href="#cta"
                     >
                         Contact
                     </a>
                 </motion.li>
                 <motion.li variants={liVariants}>
-                    <a
-                        className="text-3xl font-medium text-gray-800 lg:text-4xl"
-                        href="#"
-                    >
+                    <a className="text-3xl font-medium text-gray-800" href="#">
                         Resume
                     </a>
                 </motion.li>

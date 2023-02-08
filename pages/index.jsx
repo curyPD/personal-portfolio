@@ -1,3 +1,5 @@
+import { useState, useRef } from "react";
+
 import Head from "next/head";
 import {
     getHomeSection,
@@ -8,9 +10,7 @@ import {
     getCtaSection,
 } from "@/lib/sanity.client";
 
-import MobileHeader from "../components/MobileHeader";
-import DesktopHeader from "../components/DesktopHeader";
-import DesktopSocialLinks from "@/components/DesktopSocialLinks";
+import Header from "../components/Header";
 import HomeSection from "../components/HomeSection";
 import AboutSection from "../components/AboutSection";
 import WorkSection from "../components/WorkSection";
@@ -34,6 +34,21 @@ export default function Home({
         jsProjects,
         ctaSection
     );
+    const [isNavVisible, setIsNavVisible] = useState(false);
+
+    const homeSectionRef = useRef(null);
+    const aboutSectionRef = useRef(null);
+    const workSectionRef = useRef(null);
+    const ctaSectionRef = useRef(null);
+
+    function scrollToSection(ref) {
+        return (e) => {
+            e.preventDefault();
+            setIsNavVisible(false);
+            ref.current?.scrollIntoView({ behavior: "smooth" });
+        };
+    }
+
     return (
         <>
             <Head>
@@ -48,15 +63,27 @@ export default function Home({
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <MobileHeader socialLinks={socialLinks} />
-            <DesktopHeader />
-            <DesktopSocialLinks socialLinks={socialLinks} />
+            <Header
+                isNavVisible={isNavVisible}
+                setIsNavVisible={setIsNavVisible}
+                socialLinks={socialLinks}
+                scrollToHome={scrollToSection(homeSectionRef)}
+                scrollToAbout={scrollToSection(aboutSectionRef)}
+                scrollToWork={scrollToSection(workSectionRef)}
+                scrollToCta={scrollToSection(ctaSectionRef)}
+            />
             <main>
-                <HomeSection homeSection={homeSection} />
-                <AboutSection aboutSection={aboutSection} />
-                <WorkSection featuredProjects={featuredProjects} />
+                <HomeSection ref={homeSectionRef} homeSection={homeSection} />
+                <AboutSection
+                    ref={aboutSectionRef}
+                    aboutSection={aboutSection}
+                />
+                <WorkSection
+                    ref={workSectionRef}
+                    featuredProjects={featuredProjects}
+                />
                 <JsProjectsSection jsProjects={jsProjects} />
-                <CtaSection ctaSection={ctaSection} />
+                <CtaSection ref={ctaSectionRef} ctaSection={ctaSection} />
             </main>
             <Footer />
         </>

@@ -1,8 +1,8 @@
 import { PortableText } from "@portabletext/react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, forwardRef } from "react";
 import GradientText from "./GradientText";
 
-export default function HomeSection({ homeSection }) {
+export default forwardRef(function HomeSection({ homeSection }, ref) {
     const [curColor, setCurColor] = useState("purple");
 
     const portableTextComponents = useMemo(() => {
@@ -19,7 +19,6 @@ export default function HomeSection({ homeSection }) {
             },
             marks: {
                 em: (props) => {
-                    console.log(props);
                     let colors, color;
                     if (
                         props.children.some(
@@ -41,9 +40,8 @@ export default function HomeSection({ homeSection }) {
                     }
                     return (
                         <GradientText
+                            color={color}
                             colors={colors}
-                            curColor={curColor}
-                            isActive={curColor === color}
                             setCurColor={() => setCurColor(color)}
                             text={props.children}
                         />
@@ -51,7 +49,7 @@ export default function HomeSection({ homeSection }) {
                 },
             },
         };
-    }, [curColor]);
+    }, []);
 
     const buttonStyles = {
         boxShadow: `0 0 40px ${
@@ -73,7 +71,8 @@ export default function HomeSection({ homeSection }) {
     return (
         <section
             id="home"
-            className="py-28 sm:pt-32 md:pt-36 lg:py-36 lg:pt-40 xl:py-44 xl:pt-28"
+            className="py-28 sm:pt-32 md:pt-36 lg:py-36 lg:pt-40 xl:py-44"
+            ref={ref}
         >
             <div className="mx-auto max-w-lg px-4 text-center xs:px-5 md:max-w-xl lg:max-w-3xl lg:text-left xl:max-w-4xl 2xl:max-w-6xl">
                 <span className="mb-1 block text-sm font-medium tracking-wider text-gray-400 xl:mb-2 xl:text-base 2xl:text-xl">
@@ -89,7 +88,7 @@ export default function HomeSection({ homeSection }) {
                 <div className="mx-auto flex max-w-xs flex-col gap-5 lg:mx-0 lg:max-w-sm lg:flex-row lg:gap-7 lg:text-center xl:max-w-lg xl:gap-8">
                     <a
                         href="mailto:romandruzhininwork@gmail.com"
-                        className="rounded border-2 border-gray-900 bg-gray-900 py-2.5 text-base font-medium text-white shadow-md transition-colors hover:bg-transparent hover:text-gray-900 lg:flex-1 xl:py-3 xl:text-xl 2xl:py-3.5 2xl:text-2xl"
+                        className="rounded border-2 border-gray-900 bg-gray-900 py-2.5 text-base font-medium text-white shadow-md transition-colors duration-100 hover:bg-transparent hover:text-gray-900 lg:flex-1 xl:py-3 xl:text-xl 2xl:py-3.5 2xl:text-2xl"
                     >
                         Contact me
                     </a>
@@ -102,7 +101,7 @@ export default function HomeSection({ homeSection }) {
                         </span>
                         <a
                             href="#"
-                            className="flex w-full items-center justify-center rounded border-2 border-transparent bg-gray-50 bg-clip-padding py-2.5 text-base font-medium text-gray-900 shadow-md transition-colors group-hover:bg-transparent group-hover:text-white xl:py-3 xl:text-xl 2xl:py-3.5 2xl:text-2xl"
+                            className="flex w-full items-center justify-center rounded border-2 border-transparent bg-gray-50 bg-clip-padding py-2.5 text-base font-medium text-gray-900 shadow-md transition-colors duration-100 group-hover:bg-transparent group-hover:text-white xl:py-3 xl:text-xl 2xl:py-3.5 2xl:text-2xl"
                         >
                             <span className="">Resume</span>
                         </a>
@@ -111,4 +110,4 @@ export default function HomeSection({ homeSection }) {
             </div>
         </section>
     );
-}
+});

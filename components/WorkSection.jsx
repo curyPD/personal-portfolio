@@ -1,9 +1,10 @@
+import { forwardRef } from "react";
 import FeaturedProject from "./FeaturedProject";
 import { motion } from "framer-motion";
 
-export default function WorkSection({ featuredProjects }) {
+export default forwardRef(function WorkSection({ featuredProjects }, ref) {
     return (
-        <section id="work" className="py-28 lg:py-36 xl:py-44">
+        <section ref={ref} id="work" className="py-28 lg:py-36 xl:py-44">
             <motion.div
                 initial={{ opacity: 0, y: 150 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -39,4 +40,4 @@ export default function WorkSection({ featuredProjects }) {
             </motion.div>
         </section>
     );
-}
+});
