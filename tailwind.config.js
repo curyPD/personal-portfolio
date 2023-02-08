@@ -27,7 +27,7 @@ module.exports = {
                 },
             },
             animation: {
-                magicText: "backgroundPan 1.5s linear infinite",
+                magicText: "backgroundPan 2s linear infinite",
             },
         },
     },

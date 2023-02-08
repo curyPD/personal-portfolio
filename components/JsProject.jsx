@@ -27,9 +27,10 @@ export default function FeaturedProject({
                 strikeThrough: ({ children }) => (
                     <span className="line-through">{children}</span>
                 ),
-                em: ({ children }) => (
-                    <span className="opacity-50">{children}</span>
-                ),
+                em: (props) => {
+                    console.log(props);
+                    return <span className="opacity-50">{props.children}</span>;
+                },
             },
         }),
         []

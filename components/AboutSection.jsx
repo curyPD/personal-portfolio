@@ -19,7 +19,7 @@ export default function AboutSection({ aboutSection }) {
                 link: ({ value, children }) => (
                     <a
                         href={value.href}
-                        className="text-sky-600 underline decoration-sky-600 hover:no-underline"
+                        className="text-blue-500 underline decoration-blue-500 hover:no-underline"
                     >
                         {children}
                     </a>
@@ -46,7 +46,7 @@ export default function AboutSection({ aboutSection }) {
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 xs:text-3xl xl:text-4xl 2xl:text-5xl">
                         About me
                     </h2>
-                    <div className="my-6 h-[3px] w-16 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 lg:my-0 lg:mb-2">
+                    <div className="my-6 h-[3px] w-16 bg-gradient-to-r from-rose-500 via-orange-500 to-yellow-500 lg:my-0 lg:mb-2">
                         &nbsp;
                     </div>
                 </div>

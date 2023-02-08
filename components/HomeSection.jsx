@@ -1,22 +1,71 @@
-import { useState } from "react";
+import { PortableText } from "@portabletext/react";
+import { useState, useMemo } from "react";
 import GradientText from "./GradientText";
 
 export default function HomeSection({ homeSection }) {
-    const [curColor, setCurColor] = useState(null);
+    const [curColor, setCurColor] = useState("purple");
+
+    const portableTextComponents = useMemo(() => {
+        const decorators = homeSection.description[0].children.filter((span) =>
+            span.marks.includes("em")
+        );
+        return {
+            block: {
+                normal: ({ children }) => (
+                    <p className="mb-14 text-lg font-semibold text-gray-600 xs:text-xl lg:w-4/5 xl:mb-20 xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal">
+                        {children}
+                    </p>
+                ),
+            },
+            marks: {
+                em: (props) => {
+                    console.log(props);
+                    let colors, color;
+                    if (
+                        props.children.some(
+                            (text) => text === decorators[0].text
+                        )
+                    ) {
+                        color = "red";
+                        colors = ["#f43f5e", "#f97316", "#eab308"];
+                    } else if (
+                        props.children.some(
+                            (text) => text === decorators[1].text
+                        )
+                    ) {
+                        color = "purple";
+                        colors = ["#6366f1", "#a855f7", "#d946ef"];
+                    } else {
+                        (color = "blue"),
+                            (colors = ["#14b8a6", "#06b6d4", "#3b82f6"]);
+                    }
+                    return (
+                        <GradientText
+                            colors={colors}
+                            curColor={curColor}
+                            isActive={curColor === color}
+                            setCurColor={() => setCurColor(color)}
+                            text={props.children}
+                        />
+                    );
+                },
+            },
+        };
+    }, [curColor]);
 
     const buttonStyles = {
         boxShadow: `0 0 40px ${
-            curColor === "purple" || !curColor
+            curColor === "purple"
                 ? "#a855f756"
                 : curColor === "red"
                 ? "#f9731656"
                 : "#06b6d456"
         }`,
         backgroundImage: `linear-gradient(to right bottom, ${
-            curColor === "purple" || !curColor
+            curColor === "purple"
                 ? "#6366f1, #a855f7, #d946ef"
                 : curColor === "red"
-                ? "#ef4444, #f97316, #eab308"
+                ? "#f43f5e, #f97316, #eab308"
                 : "#14b8a6, #06b6d4, #3b82f6"
         })`,
     };
@@ -33,33 +82,10 @@ export default function HomeSection({ homeSection }) {
                 <h1 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 xs:text-4xl xl:mb-10 xl:text-5xl 2xl:mb-12 2xl:text-6xl">
                     {homeSection.name}
                 </h1>
-                <p className="mb-14 text-lg font-semibold text-gray-600 xs:text-xl lg:w-4/5 xl:mb-20 xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal">
-                    I'm a web developer passionate about designing and building{" "}
-                    <GradientText
-                        colors={["#ef4444", "#f97316", "#eab308"]}
-                        isActive={curColor === "red"}
-                        curColor={curColor}
-                        setCurColor={() => setCurColor("red")}
-                        text="blazingly fast"
-                    />
-                    ,{" "}
-                    <GradientText
-                        colors={["#6366f1", "#a855f7", "#d946ef"]}
-                        isActive={curColor === "purple"}
-                        curColor={curColor}
-                        setCurColor={() => setCurColor("purple")}
-                        text="modern"
-                    />
-                    , and{" "}
-                    <GradientText
-                        colors={["#14b8a6", "#06b6d4", "#3b82f6"]}
-                        isActive={curColor === "blue"}
-                        curColor={curColor}
-                        setCurColor={() => setCurColor("blue")}
-                        text="highly interactive"
-                    />{" "}
-                    web applications.
-                </p>
+                <PortableText
+                    value={homeSection.description}
+                    components={portableTextComponents}
+                />
                 <div className="mx-auto flex max-w-xs flex-col gap-5 lg:mx-0 lg:max-w-sm lg:flex-row lg:gap-7 lg:text-center xl:max-w-lg xl:gap-8">
                     <a
                         href="mailto:romandruzhininwork@gmail.com"

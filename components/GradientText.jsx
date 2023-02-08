@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 export default function GradientText({
     text,
@@ -19,7 +20,7 @@ export default function GradientText({
             style={styles}
             className={`mx-1 inline-block ${
                 isActive ? "animate-magicText" : ""
-            } whitespace-nowrap bg-gradient-to-r from-red-500 via-yellow-500 to-red-500 bg-[length:200%] bg-clip-text text-transparent`}
+            } whitespace-nowrap bg-[length:200%] bg-clip-text text-transparent`}
             onMouseEnter={setCurColor}
         >
             {text}
