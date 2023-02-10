@@ -17,30 +17,32 @@ export default function FeaturedProject({
     return (
         <article className="grid-rows-[repeat(10,_minmax(0,_1fr)] group/article mb-36 grid grid-cols-10 last:mb-0 md:mb-40 lg:mb-64 lg:grid-cols-12 lg:grid-rows-4 lg:items-start">
             <div className="z-10 col-span-full row-start-1 row-end-2 lg:col-start-1 lg:col-end-5 lg:row-end-2 lg:text-left lg:group-even/article:col-start-8 lg:group-even/article:col-end-13 lg:group-even/article:text-right 2xl:col-end-5 2xl:group-even/article:col-start-9">
-                <span className="mb-1 hidden text-xs font-bold uppercase tracking-widest text-purple-400 lg:block">
+                <span className="mb-1 hidden text-xs font-bold uppercase tracking-widest text-purple-600 lg:block">
                     featured project
                 </span>
-                <h4 className="mb-7 text-xl font-semibold text-gray-900 xs:text-2xl sm:mb-8 xl:text-3xl 2xl:text-4xl">
+                <h3 className="mb-7 text-xl font-semibold text-gray-900 xs:text-2xl sm:mb-8 xl:text-3xl 2xl:text-4xl">
                     {title}
-                </h4>
+                </h3>
             </div>
             <div className="relative col-span-full row-start-2 row-end-[7] shadow-md shadow-gray-900/10 lg:col-start-5 lg:col-end-13 lg:row-start-1 lg:shadow-xl lg:group-even/article:col-start-1 lg:group-even/article:col-end-9 2xl:col-start-5 2xl:col-end-12 2xl:group-even/article:col-start-2">
-                <div className="absolute top-0 right-0 flex h-8 w-16 items-center justify-center gap-2 rounded-bl-2xl rounded-tr-2xl bg-purple-300/80 md:h-9 md:w-20 md:gap-3 lg:hidden">
+                <div className="absolute top-0 right-0 flex h-12 w-24 items-center justify-center gap-4 rounded-bl-2xl rounded-tr-2xl bg-purple-100/95 lg:hidden">
                     <a
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-900 focus:outline-none focus-visible:text-gray-500"
+                        aria-label={`External link to the ${title} app`}
+                        className="text-purple-600 focus:outline-none focus-visible:text-purple-900"
                     >
-                        <HiArrowTopRightOnSquare className="h-5 w-5 md:h-6 md:w-6" />
+                        <HiArrowTopRightOnSquare className="h-7 w-7" />
                     </a>
                     <a
                         href={repo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-900 focus:outline-none focus-visible:text-gray-500"
+                        aria-label={`External link to the ${title} GitHub repo`}
+                        className="text-purple-600 focus:outline-none focus-visible:text-purple-900"
                     >
-                        <SiGithub className="h-5 w-5 md:h-6 md:w-6" />
+                        <SiGithub className="h-7 w-7" />
                     </a>
                 </div>
                 <a
@@ -99,22 +101,24 @@ export default function FeaturedProject({
                         );
                     })}
                 </div>
-                <div className="absolute bottom-1 right-1 hidden h-8 w-16 items-center justify-center gap-2 md:h-9 md:w-20 md:gap-3 lg:flex lg:group-even/article:left-1 lg:group-even/article:right-auto 2xl:right-3 2xl:bottom-3 2xl:h-10 2xl:w-24 2xl:gap-4 2xl:group-even/article:left-3 2xl:group-even/article:right-auto">
+                <div className="absolute bottom-1 right-1 hidden h-12 w-24 items-center justify-center gap-4 lg:flex lg:group-even/article:left-1 lg:group-even/article:right-auto 2xl:right-3 2xl:bottom-3 2xl:group-even/article:left-3 2xl:group-even/article:right-auto">
                     <a
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`External link to the ${title} app`}
                         className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
                     >
-                        <HiArrowTopRightOnSquare className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
+                        <HiArrowTopRightOnSquare className="h-7 w-7" />
                     </a>
                     <a
                         href={repo}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`External link to the ${title} GitHub repo`}
                         className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
                     >
-                        <SiGithub className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
+                        <SiGithub className="h-7 w-7" />
                     </a>
                 </div>
             </div>

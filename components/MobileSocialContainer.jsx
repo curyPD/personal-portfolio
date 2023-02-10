@@ -19,26 +19,6 @@ export default function MobileSocialContainer({ socialLinks, isNavVisible }) {
         },
     };
 
-    const socialVariants = {
-        open: (translate) => ({
-            opacity: 1,
-            x: `calc(-50vw + 20px + ${translate})`,
-            y: "-50%",
-            transition: {
-                type: "tween",
-            },
-        }),
-        closed: {
-            opacity: 0,
-            x: "0",
-            y: "-50%",
-
-            transition: {
-                type: "tween",
-            },
-        },
-    };
-
     function calculateTranslateValueOfArrayItem(i, length, itemWidth, gap) {
         let translate;
         const isOdd = length % 2 !== 0;
@@ -82,6 +62,26 @@ export default function MobileSocialContainer({ socialLinks, isNavVisible }) {
     }
 
     useEffect(() => {
+        const socialVariants = {
+            open: (translate) => ({
+                opacity: 1,
+                x: `calc(-50vw + 20px + ${translate})`,
+                y: "-50%",
+                transition: {
+                    type: "tween",
+                },
+            }),
+            closed: {
+                opacity: 0,
+                x: "0",
+                y: "-50%",
+
+                transition: {
+                    type: "tween",
+                },
+            },
+        };
+
         const props = isNavVisible ? { tabIndex: 0 } : { tabIndex: -1 };
 
         setSocialIcons(
@@ -127,7 +127,8 @@ export default function MobileSocialContainer({ socialLinks, isNavVisible }) {
                         <a
                             href={socialLink.url}
                             target="_blank"
-                            rel="noopener noferrer"
+                            rel="noopener noreferrer"
+                            aria-label={`External link to my ${socialLink.title} profile`}
                             className="text-gray-400 focus:outline-none focus-visible:text-gray-900 "
                             {...props}
                         >
@@ -137,7 +138,7 @@ export default function MobileSocialContainer({ socialLinks, isNavVisible }) {
                 );
             })
         );
-    }, [isNavVisible]);
+    }, [isNavVisible, socialLinks]);
 
     return (
         <motion.div

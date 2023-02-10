@@ -29,17 +29,17 @@ export default function FeaturedProject({
                 ),
                 em: (props) => {
                     console.log(props);
-                    return <span className="opacity-50">{props.children}</span>;
+                    return <span className="opacity-70">{props.children}</span>;
                 },
             },
         }),
         []
     );
     return (
-        <article className="relative rounded-lg bg-purple-100/95 px-3 pt-5 pb-12 shadow-lg shadow-gray-900/10 xs:px-4 md:px-6 md:pb-14 md:pt-7  xl:px-10">
-            <h4 className="mb-3 text-center text-sm font-semibold text-purple-900 xs:text-base md:text-lg lg:text-left xl:mb-4 xl:text-xl 2xl:mb-5 2xl:text-2xl">
+        <article className="relative rounded-lg bg-purple-100/95 px-3 pt-5 pb-14 shadow-lg shadow-gray-900/10 xs:px-4 md:px-6 md:pb-14 md:pt-7  xl:px-10">
+            <h3 className="mb-3 text-center text-sm font-semibold text-purple-900 xs:text-base md:text-lg lg:text-left xl:mb-4 xl:text-xl 2xl:mb-5 2xl:text-2xl">
                 {title}
-            </h4>
+            </h3>
             <PortableText
                 value={description}
                 components={portableTextComponents}
@@ -84,22 +84,24 @@ export default function FeaturedProject({
                     );
                 })}
             </div>
-            <div className="absolute bottom-1 right-1 flex h-8 w-16 items-center justify-center gap-2 md:h-9 md:w-20 md:gap-3 2xl:right-3 2xl:bottom-3 2xl:h-10 2xl:w-24 2xl:gap-4">
+            <div className="absolute bottom-1 right-1 flex h-12 w-24 items-center justify-center gap-4 2xl:right-3 2xl:bottom-3">
                 <a
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`External link to the ${title} app`}
                     className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
                 >
-                    <HiArrowTopRightOnSquare className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
+                    <HiArrowTopRightOnSquare className="h-7 w-7" />
                 </a>
                 <a
                     href={repo}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`External link to the ${title} GitHub repo`}
                     className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
                 >
-                    <SiGithub className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
+                    <SiGithub className="h-7 w-7" />
                 </a>
             </div>
         </article>

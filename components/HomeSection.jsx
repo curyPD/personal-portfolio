@@ -51,7 +51,7 @@ export default forwardRef(function HomeSection({ homeSection }, ref) {
                 },
             },
         };
-    }, []);
+    }, [homeSection.description]);
 
     return (
         <section

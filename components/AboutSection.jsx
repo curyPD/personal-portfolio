@@ -33,7 +33,7 @@ export default forwardRef(function AboutSection(
                 ),
             },
         }),
-        []
+        [scrollToCta, scrollToWork]
     );
     const { width, height } = getImageDimensions(aboutSection.profilePicture);
     return (
@@ -62,7 +62,7 @@ export default forwardRef(function AboutSection(
                             height={height}
                             className="opacity-70"
                         />
-                        <figcaption className="text-xs text-gray-200 lg:text-center xl:text-sm">
+                        <figcaption className="text-xs text-gray-300 lg:text-center xl:text-sm">
                             {aboutSection.profilePicture.caption}
                         </figcaption>
                     </figure>
