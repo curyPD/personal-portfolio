@@ -68,12 +68,12 @@ export default function MobileNav({
         >
             <motion.ol
                 variants={ulVariants}
-                className="flex h-full w-full flex-col items-center justify-center gap-12"
+                className="flex h-full w-full flex-col items-center justify-center gap-8 md:gap-12"
             >
                 <motion.li variants={liVariants}>
                     <a
                         onClick={scrollToHome}
-                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
+                        className="text-2xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400 md:text-3xl"
                         href="#"
                         {...props}
                     >
@@ -83,7 +83,7 @@ export default function MobileNav({
                 <motion.li variants={liVariants}>
                     <a
                         onClick={scrollToAbout}
-                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
+                        className="text-2xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400 md:text-3xl"
                         href="#about"
                         {...props}
                     >
@@ -93,7 +93,7 @@ export default function MobileNav({
                 <motion.li variants={liVariants}>
                     <a
                         onClick={scrollToWork}
-                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
+                        className="text-2xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400 md:text-3xl"
                         href="#work"
                         {...props}
                     >
@@ -103,7 +103,7 @@ export default function MobileNav({
                 <motion.li variants={liVariants}>
                     <a
                         onClick={scrollToCta}
-                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
+                        className="text-2xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400 md:text-3xl"
                         href="#cta"
                         {...props}
                     >
@@ -112,7 +112,7 @@ export default function MobileNav({
                 </motion.li>
                 <motion.li variants={liVariants}>
                     <a
-                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
+                        className="text-2xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400 md:text-3xl"
                         href="#"
                         {...props}
                     >
