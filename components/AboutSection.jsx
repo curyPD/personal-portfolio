@@ -3,9 +3,11 @@ import { useMemo, forwardRef } from "react";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "../lib/sanity.image";
 import { getImageDimensions } from "@sanity/asset-utils";
-import { motion } from "framer-motion";
 
-export default forwardRef(function AboutSection({ aboutSection }, ref) {
+export default forwardRef(function AboutSection(
+    { aboutSection, scrollToWork, scrollToCta },
+    ref
+) {
     const portableTextComponents = useMemo(
         () => ({
             block: {
@@ -19,7 +21,12 @@ export default forwardRef(function AboutSection({ aboutSection }, ref) {
                 link: ({ value, children }) => (
                     <a
                         href={value.href}
-                        className="text-blue-500 underline decoration-blue-500 hover:no-underline"
+                        onClick={
+                            value.href.includes("work")
+                                ? scrollToWork
+                                : scrollToCta
+                        }
+                        className="text-gray-800 underline decoration-gray-800 hover:no-underline focus:outline-none focus-visible:text-gray-400 focus-visible:decoration-gray-400"
                     >
                         {children}
                     </a>
@@ -31,17 +38,7 @@ export default forwardRef(function AboutSection({ aboutSection }, ref) {
     const { width, height } = getImageDimensions(aboutSection.profilePicture);
     return (
         <section ref={ref} id="about" className="py-28 lg:py-36 xl:py-44">
-            <motion.div
-                initial={{ opacity: 0, y: 200 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ margin: "0px 0px -30px 0px", once: true }}
-                transition={{
-                    duration: 1,
-                    type: "tween",
-                    ease: "easeOut",
-                }}
-                className="mx-auto max-w-lg px-5 text-center xs:px-8 md:max-w-xl lg:max-w-3xl lg:px-5 lg:text-left xl:max-w-4xl 2xl:max-w-6xl"
-            >
+            <div className="mx-auto max-w-lg px-5 text-center xs:px-8 md:max-w-xl lg:max-w-3xl lg:px-5 lg:text-left xl:max-w-4xl 2xl:max-w-6xl">
                 <div className="flex flex-col items-center lg:mb-11 lg:flex-row lg:items-end lg:gap-6 2xl:mb-14">
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900 xs:text-3xl xl:text-4xl 2xl:text-5xl">
                         About me
@@ -63,13 +60,14 @@ export default forwardRef(function AboutSection({ aboutSection }, ref) {
                             alt={aboutSection.profilePicture.alt}
                             width={width}
                             height={height}
+                            className="opacity-70"
                         />
-                        <figcaption className="text-xs text-gray-300 lg:text-center xl:text-sm 2xl:text-base">
+                        <figcaption className="text-xs text-gray-200 lg:text-center xl:text-sm">
                             {aboutSection.profilePicture.caption}
                         </figcaption>
                     </figure>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 });

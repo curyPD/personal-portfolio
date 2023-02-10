@@ -2,9 +2,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { SiLinkedin, SiTwitter, SiFacebook, SiGithub } from "react-icons/si";
 
-export default function MobileSocialContainer({ socialLinks }) {
+export default function MobileSocialContainer({ socialLinks, isNavVisible }) {
     const [socialIcons, setSocialIcons] = useState([]);
-
     const socialContainerVariants = {
         open: {
             transition: {
@@ -83,6 +82,8 @@ export default function MobileSocialContainer({ socialLinks }) {
     }
 
     useEffect(() => {
+        const props = isNavVisible ? { tabIndex: 0 } : { tabIndex: -1 };
+
         setSocialIcons(
             socialLinks.map((socialLink, i, arr) => {
                 const translate = calculateTranslateValueOfArrayItem(
@@ -102,19 +103,19 @@ export default function MobileSocialContainer({ socialLinks }) {
                 let icon;
                 if (socialLink.title.toLowerCase() === "linkedin")
                     icon = (
-                        <SiLinkedin className="h-6 w-6 text-gray-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                        <SiLinkedin className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                     );
                 else if (socialLink.title.toLowerCase() === "twitter")
                     icon = (
-                        <SiTwitter className="h-6 w-6 text-gray-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                        <SiTwitter className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                     );
                 else if (socialLink.title.toLowerCase() === "facebook")
                     icon = (
-                        <SiFacebook className="h-6 w-6 text-gray-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                        <SiFacebook className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                     );
                 else if (socialLink.title.toLowerCase() === "github")
                     icon = (
-                        <SiGithub className="h-6 w-6 text-gray-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                        <SiGithub className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                     );
                 return (
                     <motion.div
@@ -127,6 +128,8 @@ export default function MobileSocialContainer({ socialLinks }) {
                             href={socialLink.url}
                             target="_blank"
                             rel="noopener noferrer"
+                            className="text-gray-400 focus:outline-none focus-visible:text-gray-900 "
+                            {...props}
                         >
                             {icon}
                         </a>
@@ -134,7 +137,7 @@ export default function MobileSocialContainer({ socialLinks }) {
                 );
             })
         );
-    }, []);
+    }, [isNavVisible]);
 
     return (
         <motion.div

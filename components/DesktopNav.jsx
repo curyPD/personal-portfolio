@@ -6,11 +6,11 @@ export default function DesktopNav({
 }) {
     return (
         <nav>
-            <ul className="flex items-center gap-4 2xl:gap-5">
+            <ol className="flex items-center gap-4 2xl:gap-5">
                 <li>
                     <a
                         onClick={scrollToHome}
-                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 2xl:text-lg"
+                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 focus:outline-none focus-visible:text-gray-900 2xl:text-lg"
                         href="#"
                     >
                         Home
@@ -19,7 +19,7 @@ export default function DesktopNav({
                 <li>
                     <a
                         onClick={scrollToAbout}
-                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 2xl:text-lg"
+                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 focus:outline-none focus-visible:text-gray-900 2xl:text-lg"
                         href="#about"
                     >
                         About
@@ -28,7 +28,7 @@ export default function DesktopNav({
                 <li>
                     <a
                         onClick={scrollToWork}
-                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 2xl:text-lg"
+                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 focus:outline-none focus-visible:text-gray-900 2xl:text-lg"
                         href="#work"
                     >
                         Work
@@ -37,7 +37,7 @@ export default function DesktopNav({
                 <li>
                     <a
                         onClick={scrollToCta}
-                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 2xl:text-lg"
+                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 focus:outline-none focus-visible:text-gray-900 2xl:text-lg"
                         href="#contact"
                     >
                         Contact
@@ -45,13 +45,13 @@ export default function DesktopNav({
                 </li>
                 <li>
                     <a
-                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 2xl:text-lg"
+                        className="text-base font-medium text-gray-500 transition-colors duration-100 hover:text-gray-900 focus:outline-none focus-visible:text-gray-900 2xl:text-lg"
                         href="#"
                     >
                         Resume
                     </a>
                 </li>
-            </ul>
+            </ol>
         </nav>
     );
 }

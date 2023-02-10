@@ -22,9 +22,10 @@ export default function MobileNavButton({ isNavVisible, setIsNavVisible }) {
 
     return (
         <motion.button
+            aria-label="Toggle mobile navigation menu"
             variants={buttonVariants}
             onClick={() => setIsNavVisible((prevState) => !prevState)}
-            className={`absolute top-1/2 right-5 z-50 h-10 w-10 rounded-full transition-colors ${
+            className={`absolute top-1/2 right-5 z-50 h-10 w-10 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 ${
                 isNavVisible ? "bg-gray-900" : "bg-transparent"
             }`}
         >

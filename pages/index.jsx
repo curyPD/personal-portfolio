@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Head from "next/head";
 import {
@@ -26,20 +26,16 @@ export default function Home({
     jsProjects,
     ctaSection,
 }) {
-    console.log(
-        homeSection,
-        socialLinks,
-        aboutSection,
-        featuredProjects,
-        jsProjects,
-        ctaSection
-    );
     const [isNavVisible, setIsNavVisible] = useState(false);
 
     const homeSectionRef = useRef(null);
     const aboutSectionRef = useRef(null);
     const workSectionRef = useRef(null);
     const ctaSectionRef = useRef(null);
+
+    useEffect(() => {
+        document.body.style.overflow = isNavVisible ? "hidden" : "";
+    }, [isNavVisible]);
 
     function scrollToSection(ref) {
         return (e) => {
@@ -77,6 +73,8 @@ export default function Home({
                 <AboutSection
                     ref={aboutSectionRef}
                     aboutSection={aboutSection}
+                    scrollToWork={scrollToSection(workSectionRef)}
+                    scrollToCta={scrollToSection(ctaSectionRef)}
                 />
                 <WorkSection
                     ref={workSectionRef}

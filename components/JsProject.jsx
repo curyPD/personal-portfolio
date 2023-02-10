@@ -89,7 +89,7 @@ export default function FeaturedProject({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-purple-600 transition-colors duration-100 hover:text-purple-900"
+                    className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
                 >
                     <HiArrowTopRightOnSquare className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                 </a>
@@ -97,7 +97,7 @@ export default function FeaturedProject({
                     href={repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-purple-600 transition-colors duration-100 hover:text-purple-900"
+                    className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
                 >
                     <SiGithub className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                 </a>

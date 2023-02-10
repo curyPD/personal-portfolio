@@ -15,17 +15,7 @@ export default function FeaturedProject({
 }) {
     const { width, height } = getImageDimensions(screenshot);
     return (
-        <motion.article
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ margin: "0px 0px 30px 0px", once: true }}
-            transition={{
-                duration: 1,
-                type: "tween",
-                ease: "easeOut",
-            }}
-            className="grid-rows-[repeat(10,_minmax(0,_1fr)] group/article mb-36 grid grid-cols-10 last:mb-0 md:mb-40 lg:mb-64 lg:grid-cols-12 lg:grid-rows-4 lg:items-start"
-        >
+        <article className="grid-rows-[repeat(10,_minmax(0,_1fr)] group/article mb-36 grid grid-cols-10 last:mb-0 md:mb-40 lg:mb-64 lg:grid-cols-12 lg:grid-rows-4 lg:items-start">
             <div className="z-10 col-span-full row-start-1 row-end-2 lg:col-start-1 lg:col-end-5 lg:row-end-2 lg:text-left lg:group-even/article:col-start-8 lg:group-even/article:col-end-13 lg:group-even/article:text-right 2xl:col-end-5 2xl:group-even/article:col-start-9">
                 <span className="mb-1 hidden text-xs font-bold uppercase tracking-widest text-purple-400 lg:block">
                     featured project
@@ -34,16 +24,31 @@ export default function FeaturedProject({
                     {title}
                 </h4>
             </div>
-            <div className="relative col-span-full row-start-2 row-end-[7] overflow-hidden rounded-2xl shadow-md shadow-gray-900/10 lg:col-start-5 lg:col-end-13 lg:row-start-1 lg:shadow-xl lg:group-even/article:col-start-1 lg:group-even/article:col-end-9 2xl:col-start-5 2xl:col-end-12 2xl:group-even/article:col-start-2">
-                <div className="absolute top-0 right-0 flex h-8 w-16 items-center justify-center gap-2 rounded-bl-2xl bg-purple-300/80 md:h-9 md:w-20 md:gap-3 lg:hidden">
-                    <a href={url} target="_blank" rel="noopener noreferrer">
-                        <HiArrowTopRightOnSquare className="h-5 w-5 text-gray-900 md:h-6 md:w-6" />
+            <div className="relative col-span-full row-start-2 row-end-[7] shadow-md shadow-gray-900/10 lg:col-start-5 lg:col-end-13 lg:row-start-1 lg:shadow-xl lg:group-even/article:col-start-1 lg:group-even/article:col-end-9 2xl:col-start-5 2xl:col-end-12 2xl:group-even/article:col-start-2">
+                <div className="absolute top-0 right-0 flex h-8 w-16 items-center justify-center gap-2 rounded-bl-2xl rounded-tr-2xl bg-purple-300/80 md:h-9 md:w-20 md:gap-3 lg:hidden">
+                    <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-900 focus:outline-none focus-visible:text-gray-500"
+                    >
+                        <HiArrowTopRightOnSquare className="h-5 w-5 md:h-6 md:w-6" />
                     </a>
-                    <a href={repo} target="_blank" rel="noopener noreferrer">
-                        <SiGithub className="h-5 w-5 text-gray-900 md:h-6 md:w-6" />
+                    <a
+                        href={repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-900 focus:outline-none focus-visible:text-gray-500"
+                    >
+                        <SiGithub className="h-5 w-5 md:h-6 md:w-6" />
                     </a>
                 </div>
-                <a href={url} target="_blank" rel="noopener noreferrer">
+                <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+                >
                     <Image
                         src={urlFor(screenshot).url()}
                         alt={screenshot.alt}
@@ -99,7 +104,7 @@ export default function FeaturedProject({
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-purple-600 transition-colors duration-100 hover:text-purple-900"
+                        className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
                     >
                         <HiArrowTopRightOnSquare className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                     </a>
@@ -107,12 +112,12 @@ export default function FeaturedProject({
                         href={repo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-purple-600 transition-colors duration-100 hover:text-purple-900"
+                        className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
                     >
                         <SiGithub className="h-5 w-5 md:h-6 md:w-6 2xl:h-7 2xl:w-7" />
                     </a>
                 </div>
             </div>
-        </motion.article>
+        </article>
     );
 }

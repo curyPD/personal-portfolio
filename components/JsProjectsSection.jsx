@@ -1,20 +1,9 @@
 import JsProject from "./JsProject";
-import { motion } from "framer-motion";
 
 export default function JsProjectsSection({ jsProjects }) {
     return (
         <section className="py-28 lg:py-36 xl:py-44">
-            <motion.div
-                initial={{ opacity: 0, y: 150 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ margin: "0px 0px -30px 0px", once: true }}
-                transition={{
-                    duration: 1,
-                    type: "tween",
-                    ease: "easeOut",
-                }}
-                className="mx-auto max-w-lg px-5 text-center lg:max-w-3xl xl:max-w-4xl 2xl:max-w-6xl"
-            >
+            <div className="mx-auto max-w-lg px-5 text-center lg:max-w-3xl xl:max-w-4xl 2xl:max-w-6xl">
                 <div>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-purple-400 xl:mb-1 xl:text-xs">
                         vanilla icecream
@@ -35,7 +24,7 @@ export default function JsProjectsSection({ jsProjects }) {
                         />
                     ))}
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 }

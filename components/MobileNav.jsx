@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 
 export default function MobileNav({
+    isNavVisible,
     scrollToHome,
     scrollToAbout,
     scrollToWork,
@@ -33,7 +34,6 @@ export default function MobileNav({
         closed: {
             transition: {
                 staggerChildren: 0.03,
-                staggerDirection: -1,
             },
         },
     };
@@ -58,20 +58,24 @@ export default function MobileNav({
             },
         },
     };
+
+    const props = isNavVisible ? { tabIndex: 0 } : { tabIndex: -1 };
+
     return (
         <motion.nav
             variants={navVariants}
             className="absolute top-0 right-0 z-30 h-screen w-full bg-gray-50 "
         >
-            <motion.ul
+            <motion.ol
                 variants={ulVariants}
                 className="flex h-full w-full flex-col items-center justify-center gap-12"
             >
                 <motion.li variants={liVariants}>
                     <a
                         onClick={scrollToHome}
-                        className="text-3xl font-medium text-gray-800"
+                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
                         href="#"
+                        {...props}
                     >
                         Home
                     </a>
@@ -79,8 +83,9 @@ export default function MobileNav({
                 <motion.li variants={liVariants}>
                     <a
                         onClick={scrollToAbout}
-                        className="text-3xl font-medium text-gray-800"
+                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
                         href="#about"
+                        {...props}
                     >
                         About
                     </a>
@@ -88,8 +93,9 @@ export default function MobileNav({
                 <motion.li variants={liVariants}>
                     <a
                         onClick={scrollToWork}
-                        className="text-3xl font-medium text-gray-800"
+                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
                         href="#work"
+                        {...props}
                     >
                         Work
                     </a>
@@ -97,18 +103,23 @@ export default function MobileNav({
                 <motion.li variants={liVariants}>
                     <a
                         onClick={scrollToCta}
-                        className="text-3xl font-medium text-gray-800"
+                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
                         href="#cta"
+                        {...props}
                     >
                         Contact
                     </a>
                 </motion.li>
                 <motion.li variants={liVariants}>
-                    <a className="text-3xl font-medium text-gray-800" href="#">
+                    <a
+                        className="text-3xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400"
+                        href="#"
+                        {...props}
+                    >
                         Resume
                     </a>
                 </motion.li>
-            </motion.ul>
+            </motion.ol>
         </motion.nav>
     );
 }

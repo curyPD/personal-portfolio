@@ -6,7 +6,7 @@ import DesktopNav from "./DesktopNav";
 import DesktopSocialContainer from "./DesktopSocialContainer";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 
-export default function MobileHeader({
+export default function Header({
     socialLinks,
     scrollToHome,
     scrollToAbout,
@@ -30,13 +30,17 @@ export default function MobileHeader({
                     isNavVisible={isNavVisible}
                     setIsNavVisible={setIsNavVisible}
                 />
+                <MobileSocialContainer
+                    isNavVisible={isNavVisible}
+                    socialLinks={socialLinks}
+                />
                 <MobileNav
+                    isNavVisible={isNavVisible}
                     scrollToHome={scrollToHome}
                     scrollToAbout={scrollToAbout}
                     scrollToWork={scrollToWork}
                     scrollToCta={scrollToCta}
                 />
-                <MobileSocialContainer socialLinks={socialLinks} />
             </motion.div>
             <div className="mx-auto hidden h-16 max-w-3xl items-center justify-between gap-6 px-6 lg:flex 2xl:max-w-6xl">
                 <DesktopSocialContainer socialLinks={socialLinks} />
