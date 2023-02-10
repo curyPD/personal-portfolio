@@ -128,7 +128,7 @@ export default function MobileSocialContainer({ socialLinks, isNavVisible }) {
                             href={socialLink.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label={`External link to my ${socialLink.title} profile`}
+                            aria-label={`External link to Roman's ${socialLink.title} profile`}
                             className="text-gray-400 focus:outline-none focus-visible:text-gray-900 "
                             {...props}
                         >

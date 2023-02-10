@@ -19,6 +19,7 @@ export default function DesktopSocialContainer({ socialLinks }) {
                             href={socialLink.url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`External link to Roman's ${socialLink.title} profile`}
                             className="text-gray-400 transition-colors duration-100 hover:text-gray-900 focus:text-gray-900 focus:outline-none"
                         >
                             {icon}
