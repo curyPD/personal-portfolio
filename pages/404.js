@@ -9,7 +9,7 @@ export default function Custom404() {
                 </h1>
                 <p className="mb-12 text-sm font-medium text-gray-600 md:mb-14 md:text-base lg:mb-16 lg:text-lg xl:text-xl">
                     Hey, how did you end up here? This website only has one
-                    page. Come on, let's go back home.
+                    page. Come on, let&apos;s go back home.
                 </p>
                 <div className="flex w-full flex-col sm:mx-auto sm:w-64">
                     <Link
