@@ -60,7 +60,6 @@ export default forwardRef(function AboutSection(
                             alt={aboutSection.profilePicture.alt}
                             width={width}
                             height={height}
-                            className="opacity-70"
                         />
                         <figcaption className="text-xs text-gray-300 lg:text-center xl:text-sm">
                             {aboutSection.profilePicture.caption}
