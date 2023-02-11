@@ -24,6 +24,7 @@ export default function Header({
         >
             <motion.div
                 animate={isNavVisible ? "open" : "closed"}
+                initial="closed"
                 className="h-16 lg:hidden"
             >
                 <MobileNavButton
