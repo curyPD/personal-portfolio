@@ -42,7 +42,7 @@ export default function Header({
                     scrollToCta={scrollToCta}
                 />
             </motion.div>
-            <div className="mx-auto hidden h-16 max-w-3xl items-center justify-between gap-6 px-6 lg:flex 2xl:max-w-6xl">
+            <div className="mx-auto hidden h-16 max-w-3xl items-center justify-between gap-6 px-5 lg:flex xl:max-w-4xl 2xl:max-w-6xl">
                 <DesktopSocialContainer socialLinks={socialLinks} />
                 <DesktopNav
                     scrollToHome={scrollToHome}
