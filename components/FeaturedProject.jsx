@@ -49,7 +49,7 @@ export default function FeaturedProject({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+                    className="block overflow-hidden rounded-2xl transition-opacity duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 hover:opacity-60"
                 >
                     <Image
                         src={urlFor(screenshot).url()}
@@ -107,7 +107,7 @@ export default function FeaturedProject({
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`External link to the ${title} app`}
-                        className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
+                        className="text-purple-600 transition-colors duration-100 focus:outline-none focus-visible:text-purple-900 hover:text-purple-900"
                     >
                         <HiArrowTopRightOnSquare className="h-7 w-7" />
                     </a>
@@ -116,7 +116,7 @@ export default function FeaturedProject({
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`External link to the ${title} GitHub repo`}
-                        className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
+                        className="text-purple-600 transition-colors duration-100 focus:outline-none focus-visible:text-purple-900 hover:text-purple-900"
                     >
                         <SiGithub className="h-7 w-7" />
                     </a>

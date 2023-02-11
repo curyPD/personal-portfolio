@@ -26,7 +26,7 @@ export default forwardRef(function AboutSection(
                                 ? scrollToWork
                                 : scrollToCta
                         }
-                        className="text-gray-800 underline decoration-gray-800 hover:no-underline focus:outline-none focus-visible:text-gray-400 focus-visible:decoration-gray-400"
+                        className="text-gray-800 underline decoration-gray-800 focus:outline-none focus-visible:text-gray-400 focus-visible:decoration-gray-400 hover:no-underline"
                     >
                         {children}
                     </a>
@@ -60,6 +60,7 @@ export default forwardRef(function AboutSection(
                             alt={aboutSection.profilePicture.alt}
                             width={width}
                             height={height}
+                            className="opacity-75"
                         />
                         <figcaption className="text-xs text-gray-300 lg:text-center xl:text-sm">
                             {aboutSection.profilePicture.caption}

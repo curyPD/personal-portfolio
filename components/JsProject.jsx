@@ -28,7 +28,6 @@ export default function FeaturedProject({
                     <span className="line-through">{children}</span>
                 ),
                 em: (props) => {
-                    console.log(props);
                     return <span className="opacity-70">{props.children}</span>;
                 },
             },
@@ -90,7 +89,7 @@ export default function FeaturedProject({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`External link to the ${title} app`}
-                    className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
+                    className="text-purple-600 transition-colors duration-100 focus:outline-none focus-visible:text-purple-900 hover:text-purple-900"
                 >
                     <HiArrowTopRightOnSquare className="h-7 w-7" />
                 </a>
@@ -99,7 +98,7 @@ export default function FeaturedProject({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`External link to the ${title} GitHub repo`}
-                    className="text-purple-600 transition-colors duration-100 hover:text-purple-900 focus:outline-none focus-visible:text-purple-900"
+                    className="text-purple-600 transition-colors duration-100 focus:outline-none focus-visible:text-purple-900 hover:text-purple-900"
                 >
                     <SiGithub className="h-7 w-7" />
                 </a>
