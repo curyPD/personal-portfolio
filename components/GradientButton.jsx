@@ -24,10 +24,12 @@ export default function GradientButton({ curColor }) {
                 &nbsp;
             </span>
             <a
-                href="#"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex w-full items-center justify-center rounded border-2 border-transparent bg-gray-50 bg-clip-padding py-2.5 text-base font-medium text-gray-900 shadow-md transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 group-hover:bg-transparent group-hover:text-white xl:py-3 xl:text-xl 2xl:py-3.5 2xl:text-2xl"
             >
-                <span className="">Resume</span>
+                <span>Resume</span>
             </a>
         </div>
     );

@@ -113,7 +113,9 @@ export default function MobileNav({
                 <motion.li variants={liVariants}>
                     <a
                         className="text-2xl font-medium text-gray-800 focus:outline-none focus-visible:text-gray-400 md:text-3xl"
-                        href="#"
+                        href="/resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         {...props}
                     >
                         Resume
