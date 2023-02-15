@@ -3,9 +3,9 @@
 </p>
 
 <h1 align="center">
-Roman Druzhinin
+<A href="https://www.romandruzhinin.com">Roman Druzhinin</a>
 </h1>
 
 <p align="center">
-My blazingly fast, modern, and highly interactive portfolio website built with React.js and love.
+My <em>blazingly fast</em>, <em>modern</em>, and <em>highly interactive</em> portfolio website built with React.js and love. I included some of my recent work as well as several vanilla JavaScript projects I'm still proud of.
 </p>
