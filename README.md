@@ -7,5 +7,5 @@
 </h1>
 
 <p align="center">
-My <em>blazingly fast</em>, <em>modern</em>, and <em>highly interactive</em> portfolio website built with React.js and love. I included some of my recent work as well as several vanilla JavaScript projects I'm still proud of.
+My <em>blazingly fast</em>, <em>modern</em>, and <em>highly interactive</em> portfolio website built with React.js and love. I included some of my recent work as well as several vanilla JavaScript projects I'm proud of.
 </p>
