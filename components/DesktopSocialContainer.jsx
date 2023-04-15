@@ -1,4 +1,10 @@
-import { SiLinkedin, SiTwitter, SiFacebook, SiGithub } from "react-icons/si";
+import {
+    SiLinkedin,
+    SiTwitter,
+    SiFacebook,
+    SiGithub,
+    SiTelegram,
+} from "react-icons/si";
 
 export default function DesktopSocialContainer({ socialLinks }) {
     return (
@@ -7,6 +13,8 @@ export default function DesktopSocialContainer({ socialLinks }) {
                 let icon;
                 if (socialLink.title.toLowerCase() === "linkedin")
                     icon = <SiLinkedin className="h-6 w-6" />;
+                else if (socialLink.title.toLowerCase() === "telegram")
+                    icon = <SiTelegram className="h-6 w-6" />;
                 else if (socialLink.title.toLowerCase() === "twitter")
                     icon = <SiTwitter className="h-6 w-6" />;
                 else if (socialLink.title.toLowerCase() === "facebook")
@@ -20,7 +28,7 @@ export default function DesktopSocialContainer({ socialLinks }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`External link to Roman's ${socialLink.title} profile`}
-                            className="text-gray-400 transition-colors duration-100 hover:text-gray-900 focus:text-gray-900 focus:outline-none"
+                            className="text-gray-400 transition-colors duration-100 focus:text-gray-900 focus:outline-none hover:text-gray-900"
                         >
                             {icon}
                         </a>

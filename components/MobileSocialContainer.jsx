@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { SiLinkedin, SiTwitter, SiFacebook, SiGithub } from "react-icons/si";
+import {
+    SiLinkedin,
+    SiTwitter,
+    SiFacebook,
+    SiGithub,
+    SiTelegram,
+} from "react-icons/si";
 
 export default function MobileSocialContainer({ socialLinks, isNavVisible }) {
     const [socialIcons, setSocialIcons] = useState([]);
@@ -104,6 +110,10 @@ export default function MobileSocialContainer({ socialLinks, isNavVisible }) {
                 if (socialLink.title.toLowerCase() === "linkedin")
                     icon = (
                         <SiLinkedin className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                    );
+                else if (socialLink.title.toLowerCase() === "telegram")
+                    icon = (
+                        <SiTelegram className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                     );
                 else if (socialLink.title.toLowerCase() === "twitter")
                     icon = (
