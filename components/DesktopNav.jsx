@@ -51,7 +51,7 @@ export default function DesktopNav({
                 <li>
                     <a
                         className="text-base font-medium text-gray-500 transition-colors duration-100 focus:outline-none focus-visible:text-gray-900 hover:text-gray-900 2xl:text-lg"
-                        href="/resume.pdf"
+                        href={lang === "en" ? "/resume.pdf" : "/resume-ru.pdf"}
                         target="_blank"
                         rel="noopener noreferrer"
                     >

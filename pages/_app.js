@@ -5,7 +5,7 @@ import LanguageProvider from "@/context/LanguageProvider";
 const rubik = Rubik({
     subsets: ["latin", "cyrillic"],
     variable: "--font-rubik",
-    // display: "swap",
+    display: "swap",
 });
 
 export default function App({ Component, pageProps }) {
