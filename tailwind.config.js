@@ -14,7 +14,7 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                sans: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],
+                sans: ["var(--font-rubik)", ...defaultTheme.fontFamily.sans],
             },
             keyframes: {
                 backgroundPan: {
