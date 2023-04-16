@@ -18,7 +18,7 @@ export default function Header({
     const scrollDirection = useScrollDirection();
     return (
         <header
-            className={`fixed z-20 w-full bg-gray-50/70 backdrop-blur-sm transition-transform duration-300 ${
+            className={`fixed z-20 w-full bg-white/70 backdrop-blur-sm transition-transform duration-300 ${
                 scrollDirection === "up" ? "translate-y-0" : "-translate-y-full"
             }`}
         >

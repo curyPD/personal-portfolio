@@ -6,6 +6,7 @@ import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { SiGithub } from "react-icons/si";
 import { PortableText } from "@portabletext/react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageProvider";
 
 export default function FeaturedProject({
     description,
@@ -14,6 +15,8 @@ export default function FeaturedProject({
     title,
     technologies,
 }) {
+    const { lang } = useLanguage();
+
     const portableTextComponents = useMemo(
         () => ({
             block: {
@@ -88,7 +91,11 @@ export default function FeaturedProject({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`External link to the ${title} app`}
+                    aria-label={
+                        lang === "en"
+                            ? `External link to the ${title} app`
+                            : `Ссылка на приложение ${title}`
+                    }
                     className="text-purple-600 transition-colors duration-100 focus:outline-none focus-visible:text-purple-900 hover:text-purple-900"
                 >
                     <HiArrowTopRightOnSquare className="h-7 w-7" />
@@ -97,7 +104,11 @@ export default function FeaturedProject({
                     href={repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`External link to the ${title} GitHub repo`}
+                    aria-label={
+                        lang === "en"
+                            ? `External link to the ${title} GitHub repo`
+                            : `Ссылка на GitHub репозиторий проекта ${title}`
+                    }
                     className="text-purple-600 transition-colors duration-100 focus:outline-none focus-visible:text-purple-900 hover:text-purple-900"
                 >
                     <SiGithub className="h-7 w-7" />

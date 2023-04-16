@@ -4,8 +4,10 @@ import { getImageDimensions } from "@sanity/asset-utils";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { SiGithub } from "react-icons/si";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageProvider";
 
 export default function FeaturedProject({
+    i,
     description,
     repo,
     url,
@@ -13,12 +15,14 @@ export default function FeaturedProject({
     screenshot,
     technologies,
 }) {
+    const { lang } = useLanguage();
+
     const { width, height } = getImageDimensions(screenshot);
     return (
         <article className="grid-rows-[repeat(10,_minmax(0,_1fr)] group/article mb-36 grid grid-cols-10 last:mb-0 md:mb-40 lg:mb-64 lg:grid-cols-12 lg:grid-rows-4 lg:items-start">
             <div className="z-10 col-span-full row-start-1 row-end-2 lg:col-start-1 lg:col-end-5 lg:row-end-2 lg:text-left lg:group-even/article:col-start-8 lg:group-even/article:col-end-13 lg:group-even/article:text-right 2xl:col-end-5 2xl:group-even/article:col-start-9">
                 <span className="mb-1 hidden text-xs font-bold uppercase tracking-widest text-purple-600 lg:block">
-                    featured project
+                    {lang === "en" ? `Project #${i}` : `проект #${i}`}
                 </span>
                 <h3 className="mb-7 text-xl font-semibold text-gray-900 xs:text-2xl sm:mb-8 xl:text-3xl 2xl:text-4xl">
                     {title}
@@ -30,7 +34,11 @@ export default function FeaturedProject({
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`External link to the ${title} app`}
+                        aria-label={
+                            lang === "en"
+                                ? `External link to the ${title} app`
+                                : `Ссылка на приложение ${title}`
+                        }
                         className="text-purple-600 focus:outline-none focus-visible:text-purple-900"
                     >
                         <HiArrowTopRightOnSquare className="h-7 w-7" />
@@ -39,7 +47,11 @@ export default function FeaturedProject({
                         href={repo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`External link to the ${title} GitHub repo`}
+                        aria-label={
+                            lang === "en"
+                                ? `External link to the ${title} GitHub repo`
+                                : `Ссылка на GitHub репозиторий проекта ${title}`
+                        }
                         className="text-purple-600 focus:outline-none focus-visible:text-purple-900"
                     >
                         <SiGithub className="h-7 w-7" />
@@ -49,11 +61,16 @@ export default function FeaturedProject({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={
+                        lang === "en"
+                            ? `External link to the ${title} app`
+                            : `Ссылка на приложение ${title}`
+                    }
                     className="block overflow-hidden rounded-2xl transition-opacity duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 hover:opacity-60"
                 >
                     <Image
                         src={urlFor(screenshot).url()}
-                        alt={screenshot.alt}
+                        alt={screenshot[lang === "en" ? "alt" : "alt_ru"]}
                         width={width}
                         height={height}
                     />
@@ -106,7 +123,11 @@ export default function FeaturedProject({
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`External link to the ${title} app`}
+                        aria-label={
+                            lang === "en"
+                                ? `External link to the ${title} app`
+                                : `Ссылка на приложение ${title}`
+                        }
                         className="text-purple-600 transition-colors duration-100 focus:outline-none focus-visible:text-purple-900 hover:text-purple-900"
                     >
                         <HiArrowTopRightOnSquare className="h-7 w-7" />
@@ -115,7 +136,11 @@ export default function FeaturedProject({
                         href={repo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`External link to the ${title} GitHub repo`}
+                        aria-label={
+                            lang === "en"
+                                ? `External link to the ${title} GitHub repo`
+                                : `Ссылка на GitHub репозиторий проекта ${title}`
+                        }
                         className="text-purple-600 transition-colors duration-100 focus:outline-none focus-visible:text-purple-900 hover:text-purple-900"
                     >
                         <SiGithub className="h-7 w-7" />

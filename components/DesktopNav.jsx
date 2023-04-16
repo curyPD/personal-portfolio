@@ -1,9 +1,14 @@
+import { useLanguage } from "@/context/LanguageProvider";
+import LanguageButton from "./LanguageButton";
+
 export default function DesktopNav({
     scrollToHome,
     scrollToAbout,
     scrollToWork,
     scrollToCta,
 }) {
+    const { lang } = useLanguage();
+
     return (
         <nav>
             <ol className="flex items-center gap-4 2xl:gap-5">
@@ -13,7 +18,7 @@ export default function DesktopNav({
                         className="text-base font-medium text-gray-500 transition-colors duration-100 focus:outline-none focus-visible:text-gray-900 hover:text-gray-900 2xl:text-lg"
                         href="#"
                     >
-                        Home
+                        {lang === "en" ? "Home" : "Главная"}
                     </a>
                 </li>
                 <li>
@@ -22,7 +27,7 @@ export default function DesktopNav({
                         className="text-base font-medium text-gray-500 transition-colors duration-100 focus:outline-none focus-visible:text-gray-900 hover:text-gray-900 2xl:text-lg"
                         href="#about"
                     >
-                        About
+                        {lang === "en" ? "About" : "Обо мне"}
                     </a>
                 </li>
                 <li>
@@ -31,7 +36,7 @@ export default function DesktopNav({
                         className="text-base font-medium text-gray-500 transition-colors duration-100 focus:outline-none focus-visible:text-gray-900 hover:text-gray-900 2xl:text-lg"
                         href="#work"
                     >
-                        Work
+                        {lang === "en" ? "Work" : "Портфолио"}
                     </a>
                 </li>
                 <li>
@@ -40,7 +45,7 @@ export default function DesktopNav({
                         className="text-base font-medium text-gray-500 transition-colors duration-100 focus:outline-none focus-visible:text-gray-900 hover:text-gray-900 2xl:text-lg"
                         href="#contact"
                     >
-                        Contact
+                        {lang === "en" ? "Contact" : "Связаться"}
                     </a>
                 </li>
                 <li>
@@ -50,9 +55,10 @@ export default function DesktopNav({
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Resume
+                        {lang === "en" ? "Resume" : "Резюме"}
                     </a>
                 </li>
+                <LanguageButton />
             </ol>
         </nav>
     );

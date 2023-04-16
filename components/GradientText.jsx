@@ -32,7 +32,7 @@ export default function GradientText({ text, color, colors, setCurColor }) {
             variants={variants}
             transition={{ type: "spring", stiffness: 500, damping: 15 }}
             style={styles}
-            className={`mx-1 inline-block cursor-default whitespace-nowrap bg-[length:200%] bg-clip-text text-transparent motion-safe:animate-magicText`}
+            className={`inline-block cursor-default whitespace-nowrap bg-[length:200%] bg-clip-text text-transparent motion-safe:animate-magicText`}
         >
             {text}
         </motion.span>
