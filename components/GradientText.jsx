@@ -12,10 +12,10 @@ export default function GradientText({ text, color, colors, setCurColor }) {
 
     const variants = {
         initial: {
-            scale: 1,
+            translateY: "0%",
         },
-        scale: {
-            scale: color === "purple" ? 1.06 : 1.03,
+        translate: {
+            translateY: "-12%",
         },
     };
 
@@ -28,9 +28,9 @@ export default function GradientText({ text, color, colors, setCurColor }) {
             onHoverEnd={() => {
                 setIsHovered(false);
             }}
-            animate={isHovered ? "scale" : "initial"}
+            animate={isHovered ? "translate" : "initial"}
             variants={variants}
-            transition={{ type: "spring", stiffness: 500, damping: 20 }}
+            transition={{ type: "spring", stiffness: 500, damping: 15 }}
             style={styles}
             className={`mx-1 inline-block cursor-default whitespace-nowrap bg-[length:200%] bg-clip-text text-transparent motion-safe:animate-magicText`}
         >
