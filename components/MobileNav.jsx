@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageProvider";
+import LanguageButton from "./LanguageButton";
 
 export default function MobileNav({
     isNavVisible,
@@ -7,6 +9,8 @@ export default function MobileNav({
     scrollToWork,
     scrollToCta,
 }) {
+    const { lang } = useLanguage();
+
     const navVariants = {
         open: {
             clipPath: `circle(2000px at calc(100% - 40px) 32px)`,
@@ -77,7 +81,7 @@ export default function MobileNav({
                         href="#"
                         {...props}
                     >
-                        Home
+                        {lang === "en" ? "Home" : "Главная"}
                     </a>
                 </motion.li>
                 <motion.li variants={liVariants}>
@@ -87,7 +91,7 @@ export default function MobileNav({
                         href="#about"
                         {...props}
                     >
-                        About
+                        {lang === "en" ? "About" : "Обо мне"}
                     </a>
                 </motion.li>
                 <motion.li variants={liVariants}>
@@ -97,7 +101,7 @@ export default function MobileNav({
                         href="#work"
                         {...props}
                     >
-                        Work
+                        {lang === "en" ? "Work" : "Портфолио"}
                     </a>
                 </motion.li>
                 <motion.li variants={liVariants}>
@@ -107,7 +111,7 @@ export default function MobileNav({
                         href="#cta"
                         {...props}
                     >
-                        Contact
+                        {lang === "en" ? "Contact" : "Связаться"}
                     </a>
                 </motion.li>
                 <motion.li variants={liVariants}>
@@ -118,8 +122,11 @@ export default function MobileNav({
                         rel="noopener noreferrer"
                         {...props}
                     >
-                        Resume
+                        {lang === "en" ? "Resume" : "Резюме"}
                     </a>
+                </motion.li>
+                <motion.li variants={liVariants}>
+                    <LanguageButton />
                 </motion.li>
             </motion.ol>
         </motion.nav>

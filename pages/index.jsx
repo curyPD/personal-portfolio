@@ -3,11 +3,13 @@ import { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import {
     getHomeSection,
+    getEmail,
+    getCtaSection,
     getSocialLinks,
     getAboutSection,
     getFeaturedProjects,
     getJsProjects,
-    getCtaSection,
+    getFooterText,
 } from "@/lib/sanity.client";
 
 import Header from "../components/Header";
@@ -20,11 +22,13 @@ import Footer from "../components/Footer";
 
 export default function Home({
     homeSection,
+    email,
     socialLinks,
     aboutSection,
     featuredProjects,
     jsProjects,
     ctaSection,
+    footerText,
 }) {
     const [isNavVisible, setIsNavVisible] = useState(false);
 
@@ -109,7 +113,11 @@ export default function Home({
                 scrollToCta={scrollToSection(ctaSectionRef)}
             />
             <main>
-                <HomeSection ref={homeSectionRef} homeSection={homeSection} />
+                <HomeSection
+                    ref={homeSectionRef}
+                    homeSection={homeSection}
+                    email={email.email}
+                />
                 <AboutSection
                     ref={aboutSectionRef}
                     aboutSection={aboutSection}
@@ -121,9 +129,13 @@ export default function Home({
                     featuredProjects={featuredProjects}
                 />
                 <JsProjectsSection jsProjects={jsProjects} />
-                <CtaSection ref={ctaSectionRef} ctaSection={ctaSection} />
+                <CtaSection
+                    ref={ctaSectionRef}
+                    ctaSection={ctaSection}
+                    email={email.email}
+                />
             </main>
-            <Footer />
+            <Footer text={footerText} />
         </>
     );
 }
@@ -131,28 +143,34 @@ export default function Home({
 export async function getStaticProps() {
     const [
         homeSection,
+        email,
         socialLinks,
         aboutSection,
         featuredProjects,
         jsProjects,
         ctaSection,
+        footerText,
     ] = await Promise.all([
         getHomeSection(),
+        getEmail(),
         getSocialLinks(),
         getAboutSection(),
         getFeaturedProjects(),
         getJsProjects(),
         getCtaSection(),
+        getFooterText(),
     ]);
 
     return {
         props: {
             homeSection,
+            email,
             socialLinks,
             aboutSection,
             featuredProjects,
             jsProjects,
             ctaSection,
+            footerText,
         },
     };
 }

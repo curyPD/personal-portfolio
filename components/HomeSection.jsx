@@ -3,14 +3,20 @@ import { useState, useMemo, forwardRef } from "react";
 import GradientText from "./GradientText";
 import GradientButton from "./GradientButton";
 import CtaButton from "./CtaButton";
+import { useLanguage } from "@/context/LanguageProvider";
 
-export default forwardRef(function HomeSection({ homeSection }, ref) {
+export default forwardRef(function HomeSection({ homeSection, email }, ref) {
     const [curColor, setCurColor] = useState("purple");
 
+    const { lang } = useLanguage();
+
     const portableTextComponents = useMemo(() => {
-        const decorators = homeSection.description[0].children.filter((span) =>
-            span.marks.includes("em")
-        );
+        const decorators = homeSection[
+            lang === "en" ? "description" : "description_ru"
+        ][0].children
+            .filter((span) => span.marks.includes("em"))
+            .reverse();
+
         return {
             block: {
                 normal: ({ children }) => (
@@ -51,7 +57,7 @@ export default forwardRef(function HomeSection({ homeSection }, ref) {
                 },
             },
         };
-    }, [homeSection.description]);
+    }, [lang]);
 
     return (
         <section
@@ -61,17 +67,21 @@ export default forwardRef(function HomeSection({ homeSection }, ref) {
         >
             <div className="mx-auto max-w-lg px-4 text-center xs:px-5 md:max-w-xl lg:max-w-3xl lg:text-left xl:max-w-4xl 2xl:max-w-6xl">
                 <span className="mb-1 block text-sm font-medium tracking-wider text-gray-400 xl:mb-2 xl:text-base 2xl:text-xl">
-                    Hi, my name is
+                    {lang === "en" ? "Hi, my name is" : "Привет, меня зовут"}
                 </span>
                 <h1 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 xs:text-4xl xl:mb-10 xl:text-5xl 2xl:mb-12 2xl:text-6xl">
-                    {homeSection.name}
+                    {lang === "en" ? homeSection.name : homeSection.name_ru}
                 </h1>
                 <PortableText
-                    value={homeSection.description}
+                    value={
+                        lang === "en"
+                            ? homeSection.description
+                            : homeSection.description_ru
+                    }
                     components={portableTextComponents}
                 />
                 <div className="mx-auto flex max-w-xs flex-col gap-5 lg:mx-0 lg:max-w-sm lg:flex-row lg:gap-7 lg:text-center xl:max-w-lg xl:gap-8">
-                    <CtaButton />
+                    <CtaButton email={email} />
                     <GradientButton curColor={curColor} />
                 </div>
             </div>
